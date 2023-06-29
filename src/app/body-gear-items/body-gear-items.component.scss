@@ -1,0 +1,13 @@
+$gap: 32px;
+
+app-gear-item {
+  min-width: calc(50% - ($gap / 2));
+}
+
+.wrapper {
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+}

@@ -7,11 +7,14 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material-angular.module';
 import { GearItemComponent } from './gear-item/gear-item.component';
 import { BodyGearItemsComponent } from './body-gear-items/body-gear-items.component';
+import { AttributeIconComponent } from './attribute-icon/attribute-icon.component';
+import { AttributeIconPipe } from 'src/pipes/attribute-icon.pipe';
+import { GearRarityColorPipe } from 'src/pipes/gear-rarity-color.pipe';
 
 @NgModule({
-  declarations: [AppComponent, GearItemComponent, BodyGearItemsComponent],
+  declarations: [AppComponent, GearItemComponent, BodyGearItemsComponent, AttributeIconPipe, AttributeIconComponent, GearRarityColorPipe],
   imports: [BrowserModule, BrowserAnimationsModule, MaterialModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

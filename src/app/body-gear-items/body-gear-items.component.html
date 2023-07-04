@@ -1,8 +1,8 @@
 <div class="wrapper">
-  <app-gear-item></app-gear-item>
-  <app-gear-item></app-gear-item>
-  <app-gear-item></app-gear-item>
-  <app-gear-item></app-gear-item>
-  <app-gear-item></app-gear-item>
-  <app-gear-item></app-gear-item>
+  <div *ngFor="let gearSlot of slots">
+    <app-gear-item [matMenuTriggerFor]="menu"></app-gear-item>
+    <mat-menu #menu="matMenu">
+      <app-body-gear-item-picker [slot]="gearSlot"></app-body-gear-item-picker>
+    </mat-menu>
+  </div>
 </div>

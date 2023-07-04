@@ -2,13 +2,21 @@
   class="item-card"
   [ngStyle]="{
     'background-image':
-      'url(https://t3.ftcdn.net/jpg/03/21/62/56/360_F_321625657_rauGwvaYjtbETuwxn9kpBWKDYrVUMdB4.jpg)'
+      'url(' +
+      this.iconSourceRepository.GetIconSourceForBrand(this.item.icon) +
+      ')'
   }"
 >
   <div
     class="content-wrapper"
     [ngStyle]="{
-      'border-left': '24px solid ' + (item.rarity | gearRarityColor)
+      'border-left': '24px solid ' + (item.rarity | gearRarityColor),
+      background:
+        'linear-gradient(90deg, ' +
+        (item.rarity | gearRarityColor : 0.4) +
+        ' 10%, ' +
+        (item.rarity | gearRarityColor : 0.2) +
+        ' 35%, rgba(0,0,0,0) 80%)'
     }"
   >
     <div class="attibute-wrapper">

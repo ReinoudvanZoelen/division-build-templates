@@ -6,14 +6,11 @@ import { GearRarity } from 'src/models/GearRarity';
 })
 export class GearRarityColorPipe implements PipeTransform {
 
-  transform(rarity: GearRarity): unknown {
+  transform(rarity: GearRarity, opacity: number = 1): unknown {
     switch (rarity) {
-      case GearRarity.Worn: return 'white';
-      case GearRarity.Standard: return 'green';
-      case GearRarity.Specialized: return 'blue';
-      case GearRarity.Superior: return 'purple';
-      case GearRarity.HighEnd: return 'orange';
-      case GearRarity.Exotic: return 'red';
+      case GearRarity.Brand: return 'rgba(255,174,0,' + opacity + ')';
+      case GearRarity.Set: return 'rgba(75,175,100,' + opacity + ')';
+      case GearRarity.Exotic: return 'rgba(225,76,50,' + opacity + ')';
     }
   }
 

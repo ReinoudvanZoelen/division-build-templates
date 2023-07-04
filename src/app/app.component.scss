@@ -1,5 +1,21 @@
-app-body-gear-items {
+.wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   display: flex;
-  width: 1000px;
-  margin: 20px;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: rgb(54, 54, 54);
+  padding: 20px;
+  gap: 20px;
+
+  h1 {
+    color: white;
+  }
+
+  app-body-gear-items {
+    display: flex;
+    align-items: flex-start;
+    width: 1000px;
+  }
 }

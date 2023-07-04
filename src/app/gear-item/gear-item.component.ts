@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { GearItem } from 'src/models/GearItem';
 import { GearRarity } from 'src/models/GearRarity';
 import { ItemAttributeType } from 'src/models/ItemAttributeType';
-import { IconSourceRepository } from '../icon-repository.service';
+import { IconSourceRepository } from '../../repositories/icon-repository.service';
 
 @Component({
   selector: 'app-gear-item',

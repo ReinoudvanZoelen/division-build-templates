@@ -1,4 +1,4 @@
-import { brandIcons } from "src/app/icon-repository.service";
+import { brandIcons } from "src/repositories/icon-repository.service";
 import { GearRarity } from "./GearRarity";
 import { ItemAttribute } from "./ItemAttribute";
 

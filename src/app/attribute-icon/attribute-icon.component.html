@@ -1,5 +1,6 @@
 <div class="wrapper">
   <img
-    [src]="'../../assets/' + (this.attribute.type | attributeIcon) + '.png'"
+    *ngIf="this.icon"
+    [src]="this.iconSourceRepository.GetIconSourceFor(this.icon)"
   />
 </div>

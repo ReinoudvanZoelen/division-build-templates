@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { GearSlot } from 'src/models/GearSlot';
-import { IconSourceRepository } from '../icon-repository.service';
+import { IconSourceRepository } from '../../repositories/icon-repository.service';
 
 @Component({
   selector: 'app-body-gear-item-picker',

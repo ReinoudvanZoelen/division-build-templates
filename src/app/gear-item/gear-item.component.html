@@ -1,12 +1,4 @@
-<div
-  class="item-card"
-  [ngStyle]="{
-    'background-image':
-      'url(' +
-      this.iconSourceRepository.GetIconSourceForBrand(this.item.icon) +
-      ')'
-  }"
->
+<div class="item-card">
   <div
     class="content-wrapper"
     [ngStyle]="{
@@ -19,11 +11,21 @@
         ' 35%, rgba(0,0,0,0) 80%)'
     }"
   >
+    <div class="content-body">
+      <div>
+        <h4>lorem ipsum dolar set amet</h4>
+      </div>
+    </div>
     <div class="attibute-wrapper">
       <app-attribute-icon
         *ngFor="let item of this.item.attributes"
         [attribute]="item"
       ></app-attribute-icon>
     </div>
+
+    <img
+      class="brand-icon"
+      [src]="this.iconSourceRepository.GetIconSourceForBrand(this.item.icon)"
+    />
   </div>
 </div>

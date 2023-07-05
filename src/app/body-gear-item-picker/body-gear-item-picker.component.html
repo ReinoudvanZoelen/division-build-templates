@@ -1,6 +1,13 @@
 <mat-tab-group (click)="$event.stopPropagation()">
   <mat-tab label="Exotic">
-    {{ this.slot }}
+    <mat-list role="list">
+      <mat-list-item
+        role="listitem"
+        *ngFor="let item of availableItems$ | async"
+      >
+        {{ item.name }}
+      </mat-list-item>
+    </mat-list>
   </mat-tab>
   <mat-tab label="Set">
     <img [src]="this.iconSourceRepository.GetIconSourceFor('offense1')" />

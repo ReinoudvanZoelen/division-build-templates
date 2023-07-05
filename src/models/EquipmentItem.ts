@@ -8,5 +8,4 @@ export class EquipmentItem {
     slot: EquipmentSlot;
     rarity: EquipmentRarity;
     brand: EquipmentBrands;
-    attributes: ItemAttribute[];
 }

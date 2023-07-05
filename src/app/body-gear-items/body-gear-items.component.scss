@@ -1,4 +1,5 @@
 $gap: 32px;
+$border-size: 1px;
 
 .wrapper {
   width: 100%;
@@ -7,7 +8,8 @@ $gap: 32px;
   gap: $gap;
 
   app-gear-item {
-    min-width: calc(50% - ($gap / 2));
+    min-width: calc(50% - ($gap / 2) - ($border-size * 2));
     height: 120px;
+    border: $border-size solid lightgray;
   }
 }

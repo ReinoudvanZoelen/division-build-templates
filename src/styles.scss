@@ -12,4 +12,8 @@ body {
 // Ensure that mat menus automatically scale to their content
 .mat-mdc-menu-panel.mat-mdc-menu-panel {
   max-width: none !important;
+
+  .mat-mdc-menu-content {
+    padding: 0 !important;
+  }
 }

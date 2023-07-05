@@ -8,7 +8,7 @@ import { IconSourceRepository } from '../../repositories/icon-repository.service
   styleUrls: ['./gear-item.component.scss'],
 })
 export class GearItemComponent {
-  @Input() item: EquipmentItem;
+  @Input() item: EquipmentItem | undefined;
 
   constructor(public iconSourceRepository: IconSourceRepository) {
   }

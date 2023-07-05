@@ -1,3 +1,10 @@
-mat-tab-group {
+.gear-picker-tab-group {
   width: 500px;
+  // background-color: rgb(54, 54, 54);
+  color: white;
+  margin: 0;
+
+  .exotic-tab {
+    color: red;
+  }
 }

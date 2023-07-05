@@ -5,13 +5,12 @@ $item-margin: 20px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  border: 1px solid lightgray;
 
   .content-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    width: calc(100% - 24px);
     height: 100%;
     border-radius: inherit;
     position: relative;
@@ -23,8 +22,9 @@ $item-margin: 20px;
 
     .brand-icon {
       position: absolute;
-      height: 50%;
-      right: 40px;
+      height: calc(100% - 20px);
+      max-height: 80px;
+      right: 20px;
       top: 10px;
     }
   }

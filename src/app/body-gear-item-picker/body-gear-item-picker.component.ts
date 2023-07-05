@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { EquipmentItem } from 'src/models/EquipmentItem';
 import { EquipmentSlot } from 'src/models/EquipmentSlot';
@@ -13,6 +13,9 @@ import { EquipmentRarity } from 'src/models/EquipmentRarity';
 })
 export class BodyGearItemPickerComponent implements OnInit, OnDestroy {
   @Input({ required: true }) slot: EquipmentSlot;
+
+  @Output() itemClicked = new EventEmitter<EquipmentItem>();
+
   public EquipmentRarity = EquipmentRarity;
 
 
@@ -29,6 +32,10 @@ export class BodyGearItemPickerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.availableItems$.unsubscribe();
+  }
+
+  public onClickItem(item: EquipmentItem) {
+    this.itemClicked.next(item);
   }
 
 }

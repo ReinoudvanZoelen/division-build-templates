@@ -2,24 +2,28 @@
   <div
     class="content-wrapper"
     [ngStyle]="{
-      'border-left': '24px solid ' + (item.rarity | gearRarityColor),
+      'border-left': '24px solid ' + (item?.rarity ?? 0 | gearRarityColor),
       background:
         'linear-gradient(90deg, ' +
-        (item.rarity | gearRarityColor : 0.4) +
+        (item?.rarity ?? 0 | gearRarityColor : 0.4) +
         ' 10%, ' +
-        (item.rarity | gearRarityColor : 0.2) +
+        (item?.rarity ?? 0 | gearRarityColor : 0.2) +
         ' 35%, rgba(0,0,0,0) 80%)'
     }"
   >
     <div class="content-body">
       <div>
-        <h4>{{ item.name }}</h4>
+        <h4>{{ item?.name ?? "Select an item" }}</h4>
       </div>
     </div>
 
     <img
       class="brand-icon"
-      [src]="this.iconSourceRepository.GetIconSourceForBrand(this.item.brand)"
+      [src]="
+        this.iconSourceRepository.GetIconSourceForBrand(
+          this.item?.brand ?? 'exotic'
+        )
+      "
     />
   </div>
 </div>

@@ -3,14 +3,40 @@
     <mat-list role="list">
       <mat-list-item
         role="listitem"
-        *ngFor="let item of availableItems$ | async"
+        *ngFor="
+          let item of availableItems$
+            | async
+            | gearRarity : EquipmentRarity.Exotic
+        "
       >
         {{ item.name }}
       </mat-list-item>
     </mat-list>
   </mat-tab>
   <mat-tab label="Set">
-    <img [src]="this.iconSourceRepository.GetIconSourceFor('offense1')" />
+    <mat-list role="list">
+      <mat-list-item
+        role="listitem"
+        *ngFor="
+          let item of availableItems$ | async | gearRarity : EquipmentRarity.Set
+        "
+      >
+        {{ item.name }}
+      </mat-list-item>
+    </mat-list>
   </mat-tab>
-  <mat-tab label="High end"> Content 3 </mat-tab>
+  <mat-tab label="Brand">
+    <mat-list role="list">
+      <mat-list-item
+        role="listitem"
+        *ngFor="
+          let item of availableItems$
+            | async
+            | gearRarity : EquipmentRarity.Brand
+        "
+      >
+        {{ item.name }}
+      </mat-list-item>
+    </mat-list>
+  </mat-tab>
 </mat-tab-group>

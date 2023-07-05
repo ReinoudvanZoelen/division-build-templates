@@ -10,15 +10,11 @@ export default abstract class BaseCSVDataService<T> {
 
     public getData(): BehaviorSubject<T[]> {
         if (this.lockDataFetching) {
-            return this.data$
+            return this.data$;
         };
 
         this.lockDataFetching = true;
         const filePath = 'https://raw.githubusercontent.com/mxswat/mx-division-builds/master/public/csv/' + this.urlPart + '.csv';
-
-        console.log('##########################################');
-        console.log('Fetching data for ' + this.urlPart);
-        console.log('##########################################');
 
         Papa.parse(filePath, {
             download: true,
@@ -29,7 +25,9 @@ export default abstract class BaseCSVDataService<T> {
                 if (results.errors && results.errors.length > 0) {
                     console.error(results.errors);
                 } else {
-                    this.data$.next(results.data.map(rawData => this.parse(rawData)));
+                    const data = results.data.map(rawData => this.parse(rawData));
+                    // console.log('Received data for ' + this.urlPart, data);
+                    this.data$.next(data);
                 }
             }
         });

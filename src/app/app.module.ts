@@ -11,6 +11,7 @@ import { BodyGearItemPickerComponent } from './body-gear-item-picker/body-gear-i
 import { BodyGearItemsComponent } from './body-gear-items/body-gear-items.component';
 import { GearItemComponent } from './gear-item/gear-item.component';
 import { MaterialModule } from './material-angular.module';
+import { GearRarityPipe } from '../pipes/gear-rarity.pipe';
 
 @NgModule({
   declarations: [AppComponent,
@@ -19,7 +20,8 @@ import { MaterialModule } from './material-angular.module';
     AttributeIconPipe,
     AttributeIconComponent,
     GearRarityColorPipe,
-    BodyGearItemPickerComponent],
+    BodyGearItemPickerComponent,
+    GearRarityPipe],
   imports: [BrowserModule, BrowserAnimationsModule, MaterialModule],
   providers: [],
   bootstrap: [AppComponent],

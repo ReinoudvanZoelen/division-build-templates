@@ -4,6 +4,7 @@ import { EquipmentItem } from 'src/models/EquipmentItem';
 import { EquipmentSlot } from 'src/models/EquipmentSlot';
 import { GearDataService } from 'src/repositories/GearDataService';
 import { IconSourceRepository } from '../../repositories/icon-repository.service';
+import { EquipmentRarity } from 'src/models/EquipmentRarity';
 
 @Component({
   selector: 'app-body-gear-item-picker',
@@ -12,6 +13,8 @@ import { IconSourceRepository } from '../../repositories/icon-repository.service
 })
 export class BodyGearItemPickerComponent implements OnInit, OnDestroy {
   @Input({ required: true }) slot: EquipmentSlot;
+  public EquipmentRarity = EquipmentRarity;
+
 
   public availableItems$: BehaviorSubject<EquipmentItem[]>;
 

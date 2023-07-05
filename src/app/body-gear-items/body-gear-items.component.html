@@ -1,8 +1,61 @@
 <div class="wrapper">
-  <div *ngFor="let gearSlot of slots">
-    <app-gear-item [matMenuTriggerFor]="menu"></app-gear-item>
-    <mat-menu #menu="matMenu">
-      <app-body-gear-item-picker [slot]="gearSlot"></app-body-gear-item-picker>
-    </mat-menu>
-  </div>
+  <app-gear-item
+    [item]="this.equipment.Mask"
+    [matMenuTriggerFor]="menu"
+  ></app-gear-item>
+  <mat-menu #menu="matMenu">
+    <app-body-gear-item-picker
+      [slot]="GearSlot.Mask"
+    ></app-body-gear-item-picker>
+  </mat-menu>
+
+  <app-gear-item
+    [item]="this.equipment.Backpack"
+    [matMenuTriggerFor]="menu"
+  ></app-gear-item>
+  <mat-menu #menu="matMenu">
+    <app-body-gear-item-picker
+      [slot]="GearSlot.Backpack"
+    ></app-body-gear-item-picker>
+  </mat-menu>
+
+  <app-gear-item
+    [item]="this.equipment.Vest"
+    [matMenuTriggerFor]="menu"
+  ></app-gear-item>
+  <mat-menu #menu="matMenu">
+    <app-body-gear-item-picker
+      [slot]="GearSlot.Vest"
+    ></app-body-gear-item-picker>
+  </mat-menu>
+
+  <app-gear-item
+    [item]="this.equipment.Gloves"
+    [matMenuTriggerFor]="menu"
+  ></app-gear-item>
+  <mat-menu #menu="matMenu">
+    <app-body-gear-item-picker
+      [slot]="GearSlot.Gloves"
+    ></app-body-gear-item-picker>
+  </mat-menu>
+
+  <app-gear-item
+    [item]="this.equipment.Holster"
+    [matMenuTriggerFor]="menu"
+  ></app-gear-item>
+  <mat-menu #menu="matMenu">
+    <app-body-gear-item-picker
+      [slot]="GearSlot.Holster"
+    ></app-body-gear-item-picker>
+  </mat-menu>
+
+  <app-gear-item
+    [item]="this.equipment.KneePads"
+    [matMenuTriggerFor]="menu"
+  ></app-gear-item>
+  <mat-menu #menu="matMenu">
+    <app-body-gear-item-picker
+      [slot]="GearSlot.KneePads"
+    ></app-body-gear-item-picker>
+  </mat-menu>
 </div>

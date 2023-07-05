@@ -13,19 +13,13 @@
   >
     <div class="content-body">
       <div>
-        <h4>lorem ipsum dolar set amet</h4>
+        <h4>{{ item.name }}</h4>
       </div>
-    </div>
-    <div class="attibute-wrapper">
-      <app-attribute-icon
-        *ngFor="let item of this.item.attributes"
-        [attribute]="item"
-      ></app-attribute-icon>
     </div>
 
     <img
       class="brand-icon"
-      [src]="this.iconSourceRepository.GetIconSourceForBrand(this.item.icon)"
+      [src]="this.iconSourceRepository.GetIconSourceForBrand(this.item.brand)"
     />
   </div>
 </div>

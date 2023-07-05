@@ -6,12 +6,8 @@ $gap: 32px;
   flex-wrap: wrap;
   gap: $gap;
 
-  > div {
-    display: contents;
-
-    app-gear-item {
-      min-width: calc(50% - ($gap / 2));
-      height: 120px;
-    }
+  app-gear-item {
+    min-width: calc(50% - ($gap / 2));
+    height: 120px;
   }
 }

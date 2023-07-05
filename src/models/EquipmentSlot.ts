@@ -1,4 +1,4 @@
-export enum GearSlot {
+export enum EquipmentSlot {
     Mask,
     Backpack,
     Vest,

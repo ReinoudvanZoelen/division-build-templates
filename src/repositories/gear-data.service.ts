@@ -1,13 +1,9 @@
 import { Injectable } from "@angular/core";
-import { EquipmentItem } from "src/models/EquipmentItem";
-import { EquipmentRarity } from "src/models/EquipmentRarity";
-import { EquipmentSlot } from "src/models/EquipmentSlot";
-import BaseCSVDataService from "./BaseCSVDataService";
-import { MappingService } from "./mapping.service";
 import { BehaviorSubject } from "rxjs";
-
-
-
+import { EquipmentItem } from "src/models/EquipmentItem";
+import { EquipmentSlot } from "src/models/EquipmentSlot";
+import BaseCSVDataService from "./base-csv-data.service";
+import { MappingService } from "./mapping.service";
 
 @Injectable({
     providedIn: 'root'

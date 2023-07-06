@@ -1,81 +1,52 @@
 <div class="wrapper">
-  <app-gear-item
-    [item]="this.equipment.Mask"
-    #menuTrigger_Mask="matMenuTrigger"
-    [matMenuTriggerFor]="menu_Mask"
-  ></app-gear-item>
+  <app-gear-item [item]="this.equipment.Mask" #menuTrigger_Mask="matMenuTrigger"
+    [matMenuTriggerFor]="menu_Mask"></app-gear-item>
   <mat-menu #menu_Mask="matMenu">
-    <app-body-gear-item-picker
-      [slot]="GearSlot.Mask"
-      (itemClicked)="this.equipment.Mask = $event; menuTrigger_Mask.closeMenu()"
-    ></app-body-gear-item-picker>
+    <app-body-gear-item-picker [slot]="GearSlot.Mask"
+      (itemClicked)="this.equipment.Mask = $event; menuTrigger_Mask.closeMenu()"></app-body-gear-item-picker>
   </mat-menu>
 
-  <app-gear-item
-    [item]="this.equipment.Backpack"
-    #menuTrigger_Backpack="matMenuTrigger"
-    [matMenuTriggerFor]="menu_Backpack"
-  ></app-gear-item>
+  <app-gear-item [item]="this.equipment.Backpack" #menuTrigger_Backpack="matMenuTrigger"
+    [matMenuTriggerFor]="menu_Backpack"></app-gear-item>
   <mat-menu #menu_Backpack="matMenu">
-    <app-body-gear-item-picker
-      [slot]="GearSlot.Backpack"
-      (itemClicked)="
+    <app-body-gear-item-picker [slot]="GearSlot.Backpack" (itemClicked)="
         this.equipment.Backpack = $event; menuTrigger_Backpack.closeMenu()
-      "
-    ></app-body-gear-item-picker>
+      "></app-body-gear-item-picker>
   </mat-menu>
 
-  <app-gear-item
-    [item]="this.equipment.Vest"
-    #menuTrigger_Vest="matMenuTrigger"
-    [matMenuTriggerFor]="menu_Vest"
-  ></app-gear-item>
+  <app-gear-item [item]="this.equipment.Vest" #menuTrigger_Vest="matMenuTrigger"
+    [matMenuTriggerFor]="menu_Vest"></app-gear-item>
   <mat-menu #menu_Vest="matMenu">
-    <app-body-gear-item-picker
-      [slot]="GearSlot.Vest"
-      (itemClicked)="this.equipment.Vest = $event; menuTrigger_Vest.closeMenu()"
-    ></app-body-gear-item-picker>
+    <app-body-gear-item-picker [slot]="GearSlot.Vest"
+      (itemClicked)="this.equipment.Vest = $event; menuTrigger_Vest.closeMenu()"></app-body-gear-item-picker>
   </mat-menu>
 
-  <app-gear-item
-    [item]="this.equipment.Gloves"
-    #menuTrigger_Gloves="matMenuTrigger"
-    [matMenuTriggerFor]="menu_Gloves"
-  ></app-gear-item>
+  <app-gear-item [item]="this.equipment.Gloves" #menuTrigger_Gloves="matMenuTrigger"
+    [matMenuTriggerFor]="menu_Gloves"></app-gear-item>
   <mat-menu #menu_Gloves="matMenu">
-    <app-body-gear-item-picker
-      [slot]="GearSlot.Gloves"
-      (itemClicked)="
+    <app-body-gear-item-picker [slot]="GearSlot.Gloves" (itemClicked)="
         this.equipment.Gloves = $event; menuTrigger_Gloves.closeMenu()
-      "
-    ></app-body-gear-item-picker>
+      "></app-body-gear-item-picker>
   </mat-menu>
 
-  <app-gear-item
-    [item]="this.equipment.Holster"
-    #menuTrigger_Holster="matMenuTrigger"
-    [matMenuTriggerFor]="menu_Holster"
-  ></app-gear-item>
+  <app-gear-item [item]="this.equipment.Holster" #menuTrigger_Holster="matMenuTrigger"
+    [matMenuTriggerFor]="menu_Holster"></app-gear-item>
   <mat-menu #menu_Holster="matMenu">
-    <app-body-gear-item-picker
-      [slot]="GearSlot.Holster"
-      (itemClicked)="
+    <app-body-gear-item-picker [slot]="GearSlot.Holster" (itemClicked)="
         this.equipment.Holster = $event; menuTrigger_Holster.closeMenu()
-      "
-    ></app-body-gear-item-picker>
+      "></app-body-gear-item-picker>
   </mat-menu>
 
-  <app-gear-item
-    [item]="this.equipment.KneePads"
-    #menuTrigger_KneePads="matMenuTrigger"
-    [matMenuTriggerFor]="menu_KneePads"
-  ></app-gear-item>
+  <app-gear-item [item]="this.equipment.KneePads" #menuTrigger_KneePads="matMenuTrigger"
+    [matMenuTriggerFor]="menu_KneePads"></app-gear-item>
   <mat-menu #menu_KneePads="matMenu">
-    <app-body-gear-item-picker
-      [slot]="GearSlot.KneePads"
-      (itemClicked)="
+    <app-body-gear-item-picker [slot]="GearSlot.KneePads" (itemClicked)="
         this.equipment.KneePads = $event; menuTrigger_KneePads.closeMenu()
-      "
-    ></app-body-gear-item-picker>
+      "></app-body-gear-item-picker>
   </mat-menu>
 </div>
+
+
+<button mat-button (click)="this.saveTemplate()">
+  Save the template!
+</button>

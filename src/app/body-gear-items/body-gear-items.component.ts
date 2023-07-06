@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EquipmentItem } from 'src/models/EquipmentItem';
 import { EquipmentSlot } from 'src/models/EquipmentSlot';
+import { BuildService } from 'src/repositories/firebase-data.service';
 
 export interface Equipment {
   Mask?: EquipmentItem;
@@ -19,4 +20,12 @@ export interface Equipment {
 export class BodyGearItemsComponent {
   public GearSlot = EquipmentSlot;
   public equipment: Equipment = {};
+
+  constructor(private buildService: BuildService) { }
+
+  public saveTemplate() {
+    this.buildService.Add(this.equipment).subscribe(x => {
+      console.log('Saved the template at', x);
+    });
+  }
 }

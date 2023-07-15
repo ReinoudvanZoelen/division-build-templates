@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Equipment } from 'src/app/body-gear-items/body-gear-items.component';
-import { EquipmentItem } from 'src/models/EquipmentItem';
 
 interface Dictionary<T> {
   [Id: string]: T;
@@ -33,58 +31,5 @@ export abstract class FirebaseDataService<T> {
   }
   public Update(body: { Id: string } & T): Observable<any> {
     return this.http.put(`${this.url}/${this.subject}.json`, body);
-  }
-}
-
-export class EquipmentStorageModel {
-  MaskSlot: EquipmentItemStorageModel;
-  BackpackSlot: EquipmentItemStorageModel;
-  VestSlot: EquipmentItemStorageModel;
-  GlovesSlot: EquipmentItemStorageModel;
-  HolsterSlot: EquipmentItemStorageModel;
-  KneePadsSlot: EquipmentItemStorageModel;
-}
-
-export class EquipmentItemStorageModel {
-  item: string;
-  attribute1: string;
-  attribute2: string;
-  mod: string;
-  talent: string;
-}
-
-@Injectable({
-  providedIn: 'root'
-})
-export class BuildService {
-  subject: string = EquipmentStorageModel.name;
-
-  constructor(private foo: FirebaseDataService<EquipmentStorageModel>) {
-    foo.subject = this.subject;
-  }
-
-  public Add(data: Equipment): Observable<any> {
-    return this.foo.Create(this.mapEquipment(data));
-  }
-
-  private mapEquipment(data: Equipment): EquipmentStorageModel {
-    return {
-      MaskSlot: this.mapItem(data.Mask as EquipmentItem),
-      BackpackSlot: this.mapItem(data.Backpack as EquipmentItem),
-      VestSlot: this.mapItem(data.Vest as EquipmentItem),
-      GlovesSlot: this.mapItem(data.Gloves as EquipmentItem),
-      HolsterSlot: this.mapItem(data.Holster as EquipmentItem),
-      KneePadsSlot: this.mapItem(data.KneePads as EquipmentItem)
-    }
-  }
-
-  private mapItem(data: EquipmentItem): EquipmentItemStorageModel {
-    return {
-      item: data.name ?? '',
-      attribute1: 'attribute1',
-      attribute2: 'attribute2',
-      mod: 'mod',
-      talent: 'talent',
-    };
   }
 }

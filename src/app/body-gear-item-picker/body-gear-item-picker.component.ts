@@ -25,7 +25,7 @@ export class BodyGearItemPickerComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.availableItems$ = this.gearDataService.getData(this.slot);
+    this.availableItems$ = this.gearDataService.GetData(this.slot);
   }
 
   ngOnDestroy(): void {

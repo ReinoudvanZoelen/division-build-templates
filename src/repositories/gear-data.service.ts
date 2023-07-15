@@ -19,14 +19,14 @@ export class GearDataService {
     ) {
     }
 
-    public getData(slot: EquipmentSlot): BehaviorSubject<EquipmentItem[]> {
+    public GetData(slot: EquipmentSlot): BehaviorSubject<EquipmentItem[]> {
         switch (slot) {
-            case EquipmentSlot.Mask: return this.MaskDataService.getData();
-            case EquipmentSlot.Backpack: return this.BackpackDataService.getData();
-            case EquipmentSlot.Vest: return this.VestDataService.getData();
-            case EquipmentSlot.Gloves: return this.GlovesDataService.getData();
-            case EquipmentSlot.Holster: return this.HolsterDataService.getData();
-            case EquipmentSlot.KneePads: return this.KneePadsDataService.getData();
+            case EquipmentSlot.Mask: return this.MaskDataService.GetData();
+            case EquipmentSlot.Backpack: return this.BackpackDataService.GetData();
+            case EquipmentSlot.Vest: return this.VestDataService.GetData();
+            case EquipmentSlot.Gloves: return this.GlovesDataService.GetData();
+            case EquipmentSlot.Holster: return this.HolsterDataService.GetData();
+            case EquipmentSlot.KneePads: return this.KneePadsDataService.GetData();
         }
     }
 }

@@ -8,7 +8,7 @@ export default abstract class BaseCSVDataService<T> {
     private lockDataFetching = false;
     public data$ = new BehaviorSubject<T[]>([]);
 
-    public getData(): BehaviorSubject<T[]> {
+    public GetData(): BehaviorSubject<T[]> {
         if (this.lockDataFetching) {
             return this.data$;
         };
@@ -33,5 +33,11 @@ export default abstract class BaseCSVDataService<T> {
         });
 
         return this.data$;
+    }
+
+    public Invalidate() {
+        this.lockDataFetching = false;
+        this.data$.next([]);
+        this.GetData();
     }
 }

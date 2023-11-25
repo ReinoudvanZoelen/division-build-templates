@@ -6,21 +6,21 @@ import {
     map,
     of
 } from 'rxjs';
-import { StoreActions } from "./actions";
-import { FirebaseLoadoutService } from './firebase/loadout.firebase-service';
-import { Firebase_Loadout, Firebase_Loadout_Create } from './firebase/models/Loadout';
+import { StoreActions } from "../actions";
+import { FirebaseLoadoutService } from '../firebase/loadout.firebase-service';
+import { Firebase_Loadout, Firebase_Loadout_Create } from '../firebase/models/Loadout';
 
 @Injectable()
 export class LoadoutStoreEffects {
-    constructor(private firebaseService: FirebaseLoadoutService,
+    constructor(private loadoutRepository: FirebaseLoadoutService,
         private actions$: Actions) {
     }
 
-    StoreActions_getLoadouts$ = createEffect(() =>
+    GetAll = createEffect(() =>
         this.actions$.pipe(
             ofType(StoreActions.getLoadouts, StoreActions.createLoadoutSuccess),
             exhaustMap(() =>
-                this.firebaseService.GetAll().pipe(
+                this.loadoutRepository.GetAll().pipe(
                     map((loadouts: Firebase_Loadout[]) => StoreActions.getLoadoutsSuccess({ loadouts })),
                     catchError((error: any) => of(StoreActions.getLoadoutsFail({ message: error })))
                 )
@@ -28,11 +28,11 @@ export class LoadoutStoreEffects {
         )
     );
 
-    StoreActions_createLoadout$ = createEffect(() =>
+    Create = createEffect(() =>
         this.actions$.pipe(
             ofType(StoreActions.createLoadout),
             exhaustMap((data: { loadout: Firebase_Loadout_Create }) =>
-                this.firebaseService.Create(data.loadout).pipe(
+                this.loadoutRepository.Create(data.loadout).pipe(
                     map((loadoutId: string) => StoreActions.createLoadoutSuccess({ loadoutId })),
                     catchError((error: any) => of(StoreActions.createLoadoutFail({ message: error })))
                 )
@@ -40,3 +40,4 @@ export class LoadoutStoreEffects {
         )
     );
 }
+

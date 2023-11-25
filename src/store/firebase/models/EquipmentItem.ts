@@ -10,8 +10,21 @@ export class Firebase_EquipmentItem_Create {
     brand: EquipmentBrandType;
     coreAttribute: CoreItemAttributeType;
     attributes: ItemAttributeType[];
+    constructor(equipmentItem: EquipmentItem_Create) {
+        this.name = equipmentItem.name;
+        this.slot = equipmentItem.slot;
+        this.rarity = equipmentItem.rarity;
+        this.brand = equipmentItem.brand;
+        this.coreAttribute = equipmentItem.coreAttribute;
+        this.attributes = equipmentItem.attributes;
+    }
 }
 
 export class Firebase_EquipmentItem extends Firebase_EquipmentItem_Create {
     id: string;
+
+    constructor(equipmentItem: EquipmentItem) {
+        super(equipmentItem);
+        this.id = equipmentItem.id;
+    }
 }

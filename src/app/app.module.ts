@@ -5,14 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { importProvidersFrom } from '@angular/core';
-import { provideRouter } from '@angular/router';
 import { EffectsModule, provideEffects } from '@ngrx/effects';
 import { StoreModule, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { AttributeIconPipe } from 'src/pipes/attribute-icon.pipe';
 import { GearRarityColorPipe } from 'src/pipes/gear-rarity-color.pipe';
-import { LoadoutStoreEffects } from 'src/store/effects';
+import { EquipmentItemStoreEffects } from 'src/store/effects/equipment-item.effects';
+import { LoadoutStoreEffects } from 'src/store/effects/loadout.effects';
 import { storeReducer } from 'src/store/reducers';
 import { GearRarityPipe } from '../pipes/gear-rarity.pipe';
 import { AttributeIconComponent } from './attribute-icon/attribute-icon.component';
@@ -31,7 +30,7 @@ import { MaterialModule } from './material-angular.module';
     GearRarityColorPipe,
     BodyGearItemPickerComponent,
     GearRarityPipe,],
-  imports: [StoreModule.forRoot(storeReducer), EffectsModule.forRoot([LoadoutStoreEffects]), BrowserModule, BrowserAnimationsModule, MaterialModule, HttpClientModule],
+  imports: [StoreModule.forRoot(storeReducer), EffectsModule.forRoot([LoadoutStoreEffects, EquipmentItemStoreEffects]), BrowserModule, BrowserAnimationsModule, MaterialModule, HttpClientModule],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
     provideStore({}),

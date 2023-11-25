@@ -3,10 +3,12 @@ import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { Loadout } from "src/models/Loadout";
 import { StoreActions } from "./actions";
+import { Firebase_EquipmentItem_Create } from "./firebase/models/EquipmentItem";
+import { Firebase_Loadout_Create } from "./firebase/models/Loadout";
+import { EquipmentItem_Create } from "./models/EquipmentItem";
+import { Loadout_Create } from "./models/Loadout";
 import { loadouts$ } from "./selectors";
 import { IStoreState } from "./state";
-import { Loadout_Create } from "./models/Loadout";
-import { Firebase_Loadout_Create } from "./firebase/models/Loadout";
 
 @Injectable({
     providedIn: "root",
@@ -19,21 +21,20 @@ export class StoreService {
     }
 
     public saveLoadout(model: Loadout_Create): void {
-        this.log('saveLoadout', model);
-
         var loadout = new Firebase_Loadout_Create(model);
-        this.log('Loadout creation model', loadout);
-        
         this.store.dispatch(StoreActions.createLoadout({ loadout }));
     }
 
     public dispatchGetLoadouts(): void {
-        this.log('dispatchGetLoadouts')
-
         this.store.dispatch(StoreActions.getLoadouts());
     }
 
-    private log(methodName: string, passedParameters: any = null) {
-        console.log('[StoreService] ' + methodName, passedParameters);
+    public saveEquipmentItem(model: EquipmentItem_Create): void {
+        var equipmentItem = new Firebase_EquipmentItem_Create(model);
+        this.store.dispatch(StoreActions.createEquipmentItem({ equipmentItem }));
+    }
+
+    public dispatchGetEquipmentItems(): void {
+        this.store.dispatch(StoreActions.getEquipmentItems());
     }
 }

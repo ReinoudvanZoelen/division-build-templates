@@ -1,4 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
+import { Firebase_EquipmentItem, Firebase_EquipmentItem_Create } from './firebase/models/EquipmentItem';
 import { Firebase_Loadout, Firebase_Loadout_Create } from './firebase/models/Loadout';
 
 export const StoreActions = createActionGroup({
@@ -11,5 +12,13 @@ export const StoreActions = createActionGroup({
         'Create Loadout': props<{ loadout: Firebase_Loadout_Create }>(),
         'Create Loadout Success': props<{ loadoutId: string }>(),
         'Create Loadout Fail': props<{ message: string }>(),
+
+        'Get Equipment Items': emptyProps(),
+        'Get Equipment Items Success': props<{ equipmentItems: Firebase_EquipmentItem[] }>(),
+        'Get Equipment Items Fail': props<{ message: string }>(),
+
+        'Create Equipment Item': props<{ equipmentItem: Firebase_EquipmentItem_Create }>(),
+        'Create Equipment Item Success': props<{ equipmentItemId: string }>(),
+        'Create Equipment Item Fail': props<{ message: string }>(),
     },
 });

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { EquipmentItem } from 'src/models/EquipmentItem';
-import { EquipmentRarity } from 'src/models/EquipmentRarity';
-import { EquipmentSlot } from 'src/models/EquipmentSlot';
+import { EquipmentRarityType } from 'src/models/EquipmentRarity';
+import { EquipmentSlotType } from 'src/models/EquipmentSlot';
 import { GearDataService } from 'src/repositories/gear-data.service';
 import { IconSourceRepository } from '../../repositories/icon-repository.service';
 
@@ -12,11 +12,11 @@ import { IconSourceRepository } from '../../repositories/icon-repository.service
   styleUrls: ['./body-gear-item-picker.component.scss']
 })
 export class BodyGearItemPickerComponent implements OnInit, OnDestroy {
-  @Input({ required: true }) slot: EquipmentSlot;
+  @Input({ required: true }) slot: EquipmentSlotType;
 
   @Output() itemClicked = new EventEmitter<EquipmentItem>();
 
-  public EquipmentRarity = EquipmentRarity;
+  public EquipmentRarity = EquipmentRarityType;
   public availableItems$: BehaviorSubject<EquipmentItem[]>;
 
   constructor(public iconSourceRepository: IconSourceRepository,

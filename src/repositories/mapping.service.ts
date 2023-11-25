@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
-import { EquipmentRarity } from 'src/models/EquipmentRarity';
-import { EquipmentBrands } from 'src/repositories/icon-repository.service';
+import { EquipmentBrandType } from 'src/models/EquipmentBrand';
+import { EquipmentRarityType } from 'src/models/EquipmentRarity';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MappingService {
 
-  public getRarity(csvQualicty: string): EquipmentRarity {
+  public getRarity(csvQualicty: string): EquipmentRarityType {
     switch (csvQualicty) {
-      case 'Exotic': return EquipmentRarity.Exotic;
-      case 'High End': return EquipmentRarity.Brand;
-      case 'Named': return EquipmentRarity.Brand;
-      case 'Gearset': return EquipmentRarity.Set;
-      default: return EquipmentRarity.Brand;
+      case 'Exotic': return EquipmentRarityType.Exotic;
+      case 'High End': return EquipmentRarityType.Brand;
+      case 'Named': return EquipmentRarityType.Brand;
+      case 'Gearset': return EquipmentRarityType.Set;
+      default: return EquipmentRarityType.Brand;
     }
   }
 
-  public getBrand(csvBrand: string): EquipmentBrands {
+  public getBrand(csvBrand: string): EquipmentBrandType {
     switch (csvBrand) {
       case '5.11 Tactical': return "511";
       case 'Aces and Eights': return "aces";

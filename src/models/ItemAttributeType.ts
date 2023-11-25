@@ -1,8 +1,10 @@
-
-export enum ItemAttributeType {
+export enum CoreItemAttributeType {
     Armor_Core,
     Weapon_Damage,
     Skill_Tier,
+}
+
+export enum SecondaryItemAttributeType {
     Armor_Regen,
     Armor_On_Kill,
     Health,
@@ -17,3 +19,5 @@ export enum ItemAttributeType {
     Status_Effects,
     Skill_Haste,
 }
+
+export type ItemAttributeType = CoreItemAttributeType | SecondaryItemAttributeType;

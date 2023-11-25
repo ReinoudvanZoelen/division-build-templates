@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { GeneralIconType } from 'src/models/GeneralIcon';
 import { ItemAttribute } from 'src/models/ItemAttribute';
-import { ItemAttributeType } from 'src/models/ItemAttributeType';
-import { IconSourceRepository, generalIcons } from 'src/repositories/icon-repository.service';
+import { CoreItemAttributeType } from 'src/models/ItemAttributeType';
+import { IconSourceRepository } from 'src/repositories/icon-repository.service';
 
 @Component({
   selector: 'app-attribute-icon',
@@ -10,16 +11,16 @@ import { IconSourceRepository, generalIcons } from 'src/repositories/icon-reposi
 })
 export class AttributeIconComponent implements OnInit {
   @Input({ required: true }) attribute: ItemAttribute;
-  public icon: generalIcons;
+  public icon: GeneralIconType;
 
   constructor(public iconSourceRepository: IconSourceRepository) {
   }
 
   ngOnInit(): void {
     switch (this.attribute?.type) {
-      case ItemAttributeType.Armor_Core: this.icon = "defense1"; break;
-      case ItemAttributeType.Weapon_Damage: this.icon = "offense1"; break;
-      case ItemAttributeType.Skill_Tier: this.icon = "tech1"; break;
+      case CoreItemAttributeType.Armor_Core: this.icon = "defense1"; break;
+      case CoreItemAttributeType.Weapon_Damage: this.icon = "offense1"; break;
+      case CoreItemAttributeType.Skill_Tier: this.icon = "tech1"; break;
     }
   }
 }

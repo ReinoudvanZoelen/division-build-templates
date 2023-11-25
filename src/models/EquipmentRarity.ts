@@ -1,4 +1,4 @@
-export enum EquipmentRarity {
+export enum EquipmentRarityType {
     Brand,
     Set,
     Exotic

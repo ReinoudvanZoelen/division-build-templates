@@ -1,0 +1,1 @@
+export type GeneralIconType = "backpack" | "blank_attribute" | "blank_mod" | "chest" | "defense1" | "defense2" | "defense3_1" | "defense3_2" | "gloves" | "handling1" | "holster" | "kneepads" | "main-weapon" | "mask" | "named" | "offense1" | "offense2" | "offense3_1" | "offense3_2" | "shd" | "shd_big" | "shd_med" | "sidearm" | "tech1" | "tech2" | "tech3_1" | "tech3_2";

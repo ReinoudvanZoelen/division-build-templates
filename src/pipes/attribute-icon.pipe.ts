@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ItemAttributeType } from 'src/models/ItemAttributeType';
+import { CoreItemAttributeType, ItemAttributeType, SecondaryItemAttributeType } from 'src/models/ItemAttributeType';
 
 @Pipe({
   name: 'attributeIcon'
@@ -8,31 +8,34 @@ export class AttributeIconPipe implements PipeTransform {
 
   transform(value: ItemAttributeType): string {
     switch (value) {
-      case ItemAttributeType.Armor_Core:
+      case CoreItemAttributeType.Armor_Core:
         return 'defensive';
-      case ItemAttributeType.Weapon_Damage:
+      case CoreItemAttributeType.Weapon_Damage:
         return 'offensive';
-      case ItemAttributeType.Skill_Tier:
+      case CoreItemAttributeType.Skill_Tier:
         return 'utility';
 
-      case ItemAttributeType.Armor_Regen:
-      case ItemAttributeType.Armor_On_Kill:
-      case ItemAttributeType.Health:
-      case ItemAttributeType.Hazard_Protection:
+      case SecondaryItemAttributeType.Armor_Regen:
+      case SecondaryItemAttributeType.Armor_On_Kill:
+      case SecondaryItemAttributeType.Health:
+      case SecondaryItemAttributeType.Hazard_Protection:
         return 'defensive';
 
-      case ItemAttributeType.Critical_Hit_Chance:
-      case ItemAttributeType.Critical_Hit_Damage:
-      case ItemAttributeType.Headshot_Damage:
-      case ItemAttributeType.Weapon_Handling:
+      case SecondaryItemAttributeType.Critical_Hit_Chance:
+      case SecondaryItemAttributeType.Critical_Hit_Damage:
+      case SecondaryItemAttributeType.Headshot_Damage:
+      case SecondaryItemAttributeType.Weapon_Handling:
         return 'offensive';
 
-      case ItemAttributeType.Incoming_Repairs:
-      case ItemAttributeType.Repair_Skills:
-      case ItemAttributeType.Skill_Damage:
-      case ItemAttributeType.Status_Effects:
-      case ItemAttributeType.Skill_Haste:
+      case SecondaryItemAttributeType.Incoming_Repairs:
+      case SecondaryItemAttributeType.Repair_Skills:
+      case SecondaryItemAttributeType.Skill_Damage:
+      case SecondaryItemAttributeType.Status_Effects:
+      case SecondaryItemAttributeType.Skill_Haste:
         return 'utility';
+
+      default:
+        return 'unknown'
     }
   }
 

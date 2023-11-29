@@ -7,7 +7,7 @@ import {
     of
 } from 'rxjs';
 import { StoreActions } from "../actions";
-import { FirebaseEquipmentItemService } from '../firebase/loadout.firebase-service';
+import { FirebaseEquipmentItemService } from '../firebase/equipment-item.firebase-service';
 import { Firebase_EquipmentItem, Firebase_EquipmentItem_Create } from '../firebase/models/EquipmentItem';
 
 @Injectable()

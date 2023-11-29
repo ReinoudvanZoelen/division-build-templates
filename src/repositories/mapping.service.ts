@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { EquipmentBrandType } from 'src/models/EquipmentBrand';
 import { EquipmentRarityType } from 'src/models/EquipmentRarity';
+import { CoreItemAttributeType } from 'src/models/ItemAttributeType';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MappingService {
+  private index = 0
+
+  getId(): string {
+    return this.index++ + '';
+  }
 
   public getRarity(csvQualicty: string): EquipmentRarityType {
     switch (csvQualicty) {
@@ -70,4 +76,12 @@ export class MappingService {
     }
   }
 
+  public getCoreAttribute(type: string): CoreItemAttributeType {
+    switch (type) {
+      case 'Weapon Damage': return CoreItemAttributeType.Weapon_Damage;
+      case 'Armor': return CoreItemAttributeType.Armor_Core;
+      case 'Skill Tier': return CoreItemAttributeType.Skill_Tier;
+      default: return CoreItemAttributeType.Not_Applicable;
+    }
+  }
 }

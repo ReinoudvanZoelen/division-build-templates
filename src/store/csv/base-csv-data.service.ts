@@ -1,5 +1,5 @@
-import * as Papa from "papaparse";
-import { BehaviorSubject } from "rxjs";
+import * as Papa from 'papaparse';
+import { BehaviorSubject } from 'rxjs';
 
 export default abstract class BaseCSVDataService<T> {
     abstract urlPart: string;
@@ -26,7 +26,6 @@ export default abstract class BaseCSVDataService<T> {
                     console.error(results.errors);
                 } else {
                     const data = results.data.map(rawData => this.parse(rawData));
-                    // console.log('Received data for ' + this.urlPart, data);
                     this.data$.next(data);
                 }
             }

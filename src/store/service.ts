@@ -1,13 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { Loadout } from "src/models/Loadout";
 import { StoreActions } from "./actions";
 import { Firebase_EquipmentItem_Create } from "./firebase/models/EquipmentItem";
 import { Firebase_Loadout_Create } from "./firebase/models/Loadout";
 import { EquipmentItem_Create } from "./models/EquipmentItem";
-import { Loadout_Create } from "./models/Loadout";
-import { loadouts$ } from "./selectors";
+import { Loadout, Loadout_Create } from "./models/Loadout";
+import { equipmentItems$, loadouts$ } from "./selectors";
 import { IStoreState } from "./state";
 
 @Injectable({
@@ -18,6 +17,10 @@ export class StoreService {
 
     public get loadouts$(): Observable<Loadout[]> {
         return this.store.select(loadouts$)
+    }
+
+    public get equipmentItems$(): Observable<Loadout[]> {
+        return this.store.select(equipmentItems$)
     }
 
     public saveLoadout(model: Loadout_Create): void {
@@ -36,5 +39,9 @@ export class StoreService {
 
     public dispatchGetEquipmentItems(): void {
         this.store.dispatch(StoreActions.getEquipmentItems());
+    }
+
+    public dispatchExtractCSV(): void {
+        this.store.dispatch(StoreActions.exactCSV());
     }
 }

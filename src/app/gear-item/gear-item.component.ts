@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EquipmentItem } from 'src/models/EquipmentItem';
+import { EquipmentItem } from 'src/store/models/EquipmentItem';
 import { IconSourceRepository } from '../../repositories/icon-repository.service';
 
 @Component({

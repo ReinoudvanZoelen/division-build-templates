@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { EquipmentItem } from 'src/models/EquipmentItem';
 import { EquipmentRarityType } from 'src/models/EquipmentRarity';
+import { EquipmentItem } from 'src/store/models/EquipmentItem';
 
 @Pipe({
   name: 'gearRarity'

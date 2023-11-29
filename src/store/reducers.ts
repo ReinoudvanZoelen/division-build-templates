@@ -8,8 +8,13 @@ export const storeReducer = createReducer(
         ...state,
         loadouts: action.loadouts
     })),
+    // TODO This action below actually pushed Firestore items into the store, which is wrong
     on(StoreActions.getEquipmentItemsSuccess, (state, action) => ({
         ...state,
-        equipmentItems: action.equipmentItems
+        equipmentItems: state.equipmentItems.concat(action.equipmentItems)
+    })),
+    on(StoreActions.exactCSVSuccess, (state, action) => ({
+        ...state,
+        equipmentItems: state.equipmentItems.concat(action.equipmentItems)
     }))
-)
+);

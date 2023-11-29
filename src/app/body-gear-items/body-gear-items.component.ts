@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EquipmentSlotType } from 'src/models/EquipmentSlot';
-import { Loadout } from 'src/models/Loadout';
+import { Loadout } from 'src/store/models/Loadout';
 
 @Component({
   selector: 'app-body-gear-items',
@@ -9,7 +9,7 @@ import { Loadout } from 'src/models/Loadout';
 })
 export class BodyGearItemsComponent {
   public GearSlot = EquipmentSlotType;
-  public equipment: Loadout = {};
+  public equipment: Loadout = { id: '' };
 
   // constructor(private buildService: BuildRepositoryService) { }
 

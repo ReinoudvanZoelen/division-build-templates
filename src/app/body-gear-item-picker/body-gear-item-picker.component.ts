@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { EquipmentItem } from 'src/models/EquipmentItem';
 import { EquipmentRarityType } from 'src/models/EquipmentRarity';
 import { EquipmentSlotType } from 'src/models/EquipmentSlot';
-import { GearDataService } from 'src/repositories/gear-data.service';
+import { GearDataService } from 'src/store/csv/gear-data.service';
+import { EquipmentItem } from 'src/store/models/EquipmentItem';
 import { IconSourceRepository } from '../../repositories/icon-repository.service';
 
 @Component({

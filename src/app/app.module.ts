@@ -10,6 +10,7 @@ import { StoreModule, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { AttributeIconPipe } from 'src/pipes/attribute-icon.pipe';
 import { GearRarityColorPipe } from 'src/pipes/gear-rarity-color.pipe';
+import { CSVEffects } from 'src/store/effects/csv.effects';
 import { EquipmentItemStoreEffects } from 'src/store/effects/equipment-item.effects';
 import { LoadoutStoreEffects } from 'src/store/effects/loadout.effects';
 import { storeReducer } from 'src/store/reducers';
@@ -30,7 +31,7 @@ import { MaterialModule } from './material-angular.module';
     GearRarityColorPipe,
     BodyGearItemPickerComponent,
     GearRarityPipe,],
-  imports: [StoreModule.forRoot(storeReducer), EffectsModule.forRoot([LoadoutStoreEffects, EquipmentItemStoreEffects]), BrowserModule, BrowserAnimationsModule, MaterialModule, HttpClientModule],
+  imports: [StoreModule.forRoot(storeReducer), EffectsModule.forRoot([CSVEffects, LoadoutStoreEffects, EquipmentItemStoreEffects]), BrowserModule, BrowserAnimationsModule, MaterialModule, HttpClientModule],
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
     provideStore({}),

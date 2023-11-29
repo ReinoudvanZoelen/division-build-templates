@@ -2,6 +2,7 @@ export enum CoreItemAttributeType {
     Armor_Core,
     Weapon_Damage,
     Skill_Tier,
+    Not_Applicable,
 }
 
 export enum SecondaryItemAttributeType {

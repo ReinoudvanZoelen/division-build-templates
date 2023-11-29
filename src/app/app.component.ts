@@ -20,7 +20,12 @@ export class AppComponent implements OnInit {
       console.log('loadouts$ returned with', x);
     })
 
+    this.store.equipmentItems$.subscribe(x => {
+      console.log('equipmentItems$ returned with', x);
+    })
+
     this.store.dispatchGetLoadouts();
+    this.store.dispatchExtractCSV();
   }
 
   protected CreateLoadout(): void {

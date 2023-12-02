@@ -1,5 +1,5 @@
 import * as Papa from 'papaparse';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export default abstract class BaseCSVDataService<T> {
     abstract urlPart: string;
@@ -32,6 +32,26 @@ export default abstract class BaseCSVDataService<T> {
         });
 
         return this.data$;
+    }
+
+
+    public GetDataAsync(): Observable<T[]> {
+        const filePath = 'https://raw.githubusercontent.com/mxswat/mx-division-builds/master/public/csv/' + this.urlPart + '.csv';
+
+        return new Observable(observable => Papa.parse(filePath, {
+            download: true,
+            header: true,
+            dynamicTyping: true,
+            skipEmptyLines: true,
+            complete: (results) => {
+                if (results.errors && results.errors.length > 0) {
+                    console.error(results.errors);
+                } else {
+                    const data = results.data.map(rawData => this.parse(rawData));
+                    observable.next(data);
+                }
+            }
+        }));
     }
 
     public Invalidate() {

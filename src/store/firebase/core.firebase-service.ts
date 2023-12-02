@@ -13,7 +13,7 @@ export abstract class CoreFirebaseService<T, T_Create>{
     public GetAll(): Observable<T[]> {
         return this.http.get(`${this.url}/${this.subject}.json`)
             .pipe(map((items: any) => {
-                console.log('Received from the GetAll call', items);
+                // console.log('Received from the GetAll call', items);
                 return [];
             }));
     }

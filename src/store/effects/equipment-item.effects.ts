@@ -9,10 +9,12 @@ import {
 import { StoreActions } from "../actions";
 import { FirebaseEquipmentItemService } from '../firebase/equipment-item.firebase-service';
 import { Firebase_EquipmentItem, Firebase_EquipmentItem_Create } from '../firebase/models/EquipmentItem';
+import { GearDataService } from '../csv/gear-data.service';
 
 @Injectable()
 export class EquipmentItemStoreEffects {
     constructor(private equipmentItemRepository: FirebaseEquipmentItemService,
+        private gearDataService: GearDataService,
         private actions$: Actions) {
     }
 
@@ -39,4 +41,14 @@ export class EquipmentItemStoreEffects {
             )
         )
     );
+
+    ExtractCSV = createEffect(() =>
+        this.actions$.pipe(
+            ofType(StoreActions.extractCSV),
+            exhaustMap(() => {
+                return this.gearDataService.GetAllData().pipe(map(equipmentItems => {
+                    return StoreActions.extractCSVSuccess({ equipmentItems });
+                }))
+            })
+        ))
 }

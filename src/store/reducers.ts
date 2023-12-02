@@ -1,7 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { StoreActions } from "./actions";
 import { initialStoreState } from "./state";
-import * as _ from 'lodash';
 
 export const storeReducer = createReducer(
     initialStoreState,
@@ -14,9 +13,8 @@ export const storeReducer = createReducer(
         ...state,
         equipmentItems: state.equipmentItems.concat(action.equipmentItems)
     })),
-    on(StoreActions.extractCSVSuccess, (state, action) => {
-        var deepCopy = _.cloneDeep(state);
-        state.equipmentItems = action.equipmentItems;
-        return deepCopy;
-    })
+    on(StoreActions.exactCSVSuccess, (state, action) => ({
+        ...state,
+        equipmentItems: state.equipmentItems.concat(action.equipmentItems)
+    }))
 );

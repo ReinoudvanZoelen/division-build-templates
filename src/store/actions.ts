@@ -22,7 +22,7 @@ export const StoreActions = createActionGroup({
         'Create Equipment Item Success': props<{ equipmentItemId: string }>(),
         'Create Equipment Item Fail': props<{ message: string }>(),
 
-        'Exact CSV': emptyProps(),
-        'Exact CSV Success': props<{ equipmentItems: EquipmentItem[] }>(),
+        'Extract CSV': emptyProps(),
+        'Extract CSV Success': props<{ equipmentItems: EquipmentItem[] }>(),
     },
 });

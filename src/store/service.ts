@@ -42,6 +42,6 @@ export class StoreService {
     }
 
     public dispatchExtractCSV(): void {
-        this.store.dispatch(StoreActions.exactCSV());
+        this.store.dispatch(StoreActions.extractCSV());
     }
 }

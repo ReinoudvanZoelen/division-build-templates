@@ -18,10 +18,10 @@ export class CSVEffects {
 
     GetAll = createEffect(() =>
         this.actions$.pipe(
-            ofType(StoreActions.exactCSV),
+            ofType(StoreActions.extractCSV),
             exhaustMap(() =>
                 this.gearData.GetAllData().pipe(
-                    map((equipmentItems: EquipmentItem[]) => StoreActions.exactCSVSuccess({ equipmentItems })))
+                    map((equipmentItems: EquipmentItem[]) => StoreActions.extractCSVSuccess({ equipmentItems })))
             )
         )
     );

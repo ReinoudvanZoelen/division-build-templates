@@ -4,5 +4,5 @@ export enum EquipmentSlotType {
     Vest,
     Gloves,
     Holster,
-    KneePads
+    KneePads,
 }

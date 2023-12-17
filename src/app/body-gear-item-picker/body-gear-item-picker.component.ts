@@ -1,9 +1,8 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { EquipmentRarityType } from 'src/models/EquipmentRarity';
 import { EquipmentSlotType } from 'src/models/EquipmentSlot';
-import { GearDataService } from 'src/store/csv/gear-data.service';
 import { EquipmentItem } from 'src/store/models/EquipmentItem';
+import { StoreService } from 'src/store/service';
 import { IconSourceRepository } from '../../repositories/icon-repository.service';
 
 @Component({
@@ -17,19 +16,20 @@ export class BodyGearItemPickerComponent implements OnInit, OnDestroy {
   @Output() itemClicked = new EventEmitter<EquipmentItem>();
 
   public EquipmentRarity = EquipmentRarityType;
-  public availableItems$: BehaviorSubject<EquipmentItem[]>;
+  public equipmentItems$ = this.store.equipmentItems$;
 
-  constructor(public iconSourceRepository: IconSourceRepository,
-    private gearDataService: GearDataService) {
-
+  constructor(
+    private store: StoreService,
+    public iconSourceRepository: IconSourceRepository) {
   }
 
   ngOnInit(): void {
-    this.availableItems$ = this.gearDataService.GetData(this.slot);
+    // this.availableItems$ = this.store.equipmentItemsForSlot$(this.slot);
+    // this.availableItems$ = this.gearDataService.GetData(this.slot);
   }
 
   ngOnDestroy(): void {
-    this.availableItems$.unsubscribe();
+    // this.availableItems$.unsubscribe();
   }
 
   public onClickItem(item: EquipmentItem) {

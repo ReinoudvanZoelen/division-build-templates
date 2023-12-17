@@ -7,17 +7,17 @@ export const storeReducer = createReducer(
     initialStoreState,
     on(StoreActions.getLoadoutsSuccess, (state, action) => {
         var deepCopy = _.cloneDeep(state);
-        deepCopy.loadouts = action.loadouts;
+        deepCopy.division.loadouts = action.loadouts;
         return deepCopy;
     }),
     on(StoreActions.getEquipmentItemsSuccess, (state, action) => {
         var deepCopy = _.cloneDeep(state);
-        deepCopy.equipmentItems = deepCopy.equipmentItems.concat(action.equipmentItems)
+        deepCopy.division.equipmentItems = deepCopy.division.equipmentItems.concat(action.equipmentItems)
         return deepCopy;
     }),
     on(StoreActions.extractCSVSuccess, (state, action) => {
         var deepCopy = _.cloneDeep(state);
-        deepCopy.equipmentItems = deepCopy.equipmentItems.concat(action.equipmentItems)
+        deepCopy.division.equipmentItems = deepCopy.division.equipmentItems.concat(action.equipmentItems)
         return deepCopy;
     })
 );

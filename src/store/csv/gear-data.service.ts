@@ -19,29 +19,6 @@ export class GearDataService {
     ) {
     }
 
-    public GetAllData(): Observable<EquipmentItem[]> {
-        console.log('Getting all data');
-        return forkJoin([
-            this.MaskDataService.GetData(),
-            this.BackpackDataService.GetData(),
-            this.VestDataService.GetData(),
-            this.GlovesDataService.GetData(),
-            this.HolsterDataService.GetData(),
-            this.KneePadsDataService.GetData()
-        ]).pipe(
-            map(wrapper => {
-                console.log('wrapper', wrapper);
-                const foo = wrapper[0]
-                    .concat(wrapper[1])
-                    .concat(wrapper[2])
-                    .concat(wrapper[3])
-                    .concat(wrapper[4])
-                    .concat(wrapper[5]);
-                console.log(foo);
-                return foo;
-            }));
-    }
-
     public GetData(slot: EquipmentSlotType): BehaviorSubject<EquipmentItem[]> {
         switch (slot) {
             case EquipmentSlotType.Mask: return this.MaskDataService.GetData();

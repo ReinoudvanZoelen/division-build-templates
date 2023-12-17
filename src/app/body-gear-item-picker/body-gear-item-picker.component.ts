@@ -26,8 +26,6 @@ export class BodyGearItemPickerComponent implements OnInit {
   }
 
   public onClickItem(item: EquipmentItem) {
-    console.log(item);
     this.itemClicked.next(item);
   }
-
 }

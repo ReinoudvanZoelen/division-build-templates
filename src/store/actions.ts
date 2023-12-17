@@ -11,7 +11,7 @@ export const StoreActions = createActionGroup({
         'Get Loadouts Fail': props<{ message: string }>(),
 
         'Create Loadout': props<{ loadout: Firebase_Loadout_Create }>(),
-        'Create Loadout Success': props<{ loadoutId: string }>(),
+        'Create Loadout Success': props<{ loadout: Firebase_Loadout }>(),
         'Create Loadout Fail': props<{ message: string }>(),
 
         'Get Equipment Items': emptyProps(),

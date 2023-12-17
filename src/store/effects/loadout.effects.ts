@@ -18,7 +18,7 @@ export class LoadoutStoreEffects {
 
     GetAll = createEffect(() =>
         this.actions$.pipe(
-            ofType(StoreActions.getLoadouts, StoreActions.createLoadoutSuccess),
+            ofType(StoreActions.getLoadouts),
             exhaustMap(() =>
                 this.loadoutRepository.GetAll().pipe(
                     map((loadouts: Firebase_Loadout[]) => StoreActions.getLoadoutsSuccess({ loadouts })),
@@ -33,7 +33,10 @@ export class LoadoutStoreEffects {
             ofType(StoreActions.createLoadout),
             exhaustMap((data: { loadout: Firebase_Loadout_Create }) =>
                 this.loadoutRepository.Create(data.loadout).pipe(
-                    map((loadoutId: string) => StoreActions.createLoadoutSuccess({ loadoutId })),
+                    map((loadoutId: string) => {
+                        var loadout: Firebase_Loadout = { ...data.loadout, id: loadoutId };
+                        return StoreActions.createLoadoutSuccess({ loadout })
+                    }),
                     catchError((error: any) => of(StoreActions.createLoadoutFail({ message: error })))
                 )
             )

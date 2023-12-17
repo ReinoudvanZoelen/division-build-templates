@@ -2,14 +2,26 @@ $gap: 32px;
 $border-size: 1px;
 
 .wrapper {
-  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  gap: $gap;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px;
 
-  app-gear-item {
-    min-width: 400px;
-    height: 120px;
-    border: $border-size solid lightgray;
+  .gear-items {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap;
+
+    app-gear-item {
+      min-width: 400px;
+      height: 120px;
+      border: $border-size solid lightgray;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
   }
 }

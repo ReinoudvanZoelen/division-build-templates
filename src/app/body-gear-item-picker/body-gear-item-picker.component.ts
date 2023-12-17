@@ -1,10 +1,9 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 import { EquipmentRarityType } from 'src/models/EquipmentRarity';
 import { EquipmentSlotType } from 'src/models/EquipmentSlot';
 import { EquipmentItem } from 'src/store/models/EquipmentItem';
 import { StoreService } from 'src/store/service';
-import { IconSourceRepository } from '../../repositories/icon-repository.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-body-gear-item-picker',
@@ -19,8 +18,7 @@ export class BodyGearItemPickerComponent implements OnInit {
   protected equipmentItems$: Observable<EquipmentItem[]>;
 
   constructor(
-    private store: StoreService,
-    public iconSourceRepository: IconSourceRepository) {
+    private store: StoreService) {
   }
 
   ngOnInit(): void {
@@ -28,6 +26,7 @@ export class BodyGearItemPickerComponent implements OnInit {
   }
 
   public onClickItem(item: EquipmentItem) {
+    console.log(item);
     this.itemClicked.next(item);
   }
 

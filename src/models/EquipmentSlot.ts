@@ -1,8 +1,8 @@
 export enum EquipmentSlotType {
-    Mask,
-    Backpack,
-    Vest,
-    Gloves,
-    Holster,
-    KneePads,
+    Mask = "Mask",
+    Backpack = "Backpack",
+    Chest = "Chest",
+    Gloves = "Gloves",
+    Holster = "Holster",
+    KneePads = "KneePads",
 }

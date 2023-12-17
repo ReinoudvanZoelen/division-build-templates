@@ -1,6 +1,6 @@
 export enum EquipmentRarityType {
-    Brand,
-    Named,
-    Set,
-    Exotic,
+    Brand = "Brand",
+    Named = "Named",
+    Set = "Set",
+    Exotic = "Exotic",
 }

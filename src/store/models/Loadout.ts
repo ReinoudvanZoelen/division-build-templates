@@ -3,7 +3,7 @@ import { EquipmentItem } from "./EquipmentItem";
 export class Loadout_Create {
     Mask?: EquipmentItem;
     Backpack?: EquipmentItem;
-    Vest?: EquipmentItem;
+    Chest?: EquipmentItem;
     Gloves?: EquipmentItem;
     Holster?: EquipmentItem;
     KneePads?: EquipmentItem;

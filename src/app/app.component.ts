@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     var model: Loadout_Create = {
       Mask: { id: '1', name: 'name', slot: EquipmentSlotType.Mask, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
       Backpack: { id: '2', name: 'name', slot: EquipmentSlotType.Backpack, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
-      Vest: { id: '3', name: 'name', slot: EquipmentSlotType.Vest, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
+      Chest: { id: '3', name: 'name', slot: EquipmentSlotType.Chest, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
       Gloves: { id: '4', name: 'name', slot: EquipmentSlotType.Gloves, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
       Holster: { id: '5', name: 'name', slot: EquipmentSlotType.Holster, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
       KneePads: { id: '6', name: 'name', slot: EquipmentSlotType.KneePads, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },

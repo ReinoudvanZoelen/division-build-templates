@@ -11,7 +11,7 @@ export class Firebase_Loadout_Create {
     constructor(loadout: Loadout_Create) {
         this.MaskId = loadout.Mask?.id;
         this.BackpackId = loadout.Backpack?.id;
-        this.VestId = loadout.Vest?.id;
+        this.VestId = loadout.Chest?.id;
         this.GlovesId = loadout.Gloves?.id;
         this.HolsterId = loadout.Holster?.id;
         this.KneePadsId = loadout.KneePads?.id;

@@ -23,7 +23,7 @@ export class GearDataService {
         switch (slot) {
             case EquipmentSlotType.Mask: return this.MaskDataService.GetData();
             case EquipmentSlotType.Backpack: return this.BackpackDataService.GetData();
-            case EquipmentSlotType.Vest: return this.VestDataService.GetData();
+            case EquipmentSlotType.Chest: return this.VestDataService.GetData();
             case EquipmentSlotType.Gloves: return this.GlovesDataService.GetData();
             case EquipmentSlotType.Holster: return this.HolsterDataService.GetData();
             case EquipmentSlotType.KneePads: return this.KneePadsDataService.GetData();
@@ -49,7 +49,7 @@ export class MaskDataService extends BaseCSVDataService<EquipmentItem> {
             slot: EquipmentSlotType.Mask,
             rarity: this.mappingService.getRarity(data['Quality']),
             brand: this.mappingService.getBrand(data['Brand']),
-            coreAttribute: this.mappingService.getCoreAttribute(data['Type']),
+            coreAttribute: this.mappingService.getCoreAttribute(data['Core']),
             attributes: []
         }
     }
@@ -67,13 +67,12 @@ export class BackpackDataService extends BaseCSVDataService<EquipmentItem> {
 
     override parse(data: any): EquipmentItem {
         return {
-
             id: this.mappingService.getId(),
             name: data['Item Name'],
             slot: EquipmentSlotType.Backpack,
             rarity: this.mappingService.getRarity(data['Quality']),
             brand: this.mappingService.getBrand(data['Brand']),
-            coreAttribute: this.mappingService.getCoreAttribute(data['Type']),
+            coreAttribute: this.mappingService.getCoreAttribute(data['Core']),
             attributes: []
         }
     }
@@ -91,13 +90,12 @@ export class VestDataService extends BaseCSVDataService<EquipmentItem> {
 
     override parse(data: any): EquipmentItem {
         return {
-
             id: this.mappingService.getId(),
             name: data['Item Name'],
-            slot: EquipmentSlotType.Vest,
+            slot: EquipmentSlotType.Chest,
             rarity: this.mappingService.getRarity(data['Quality']),
             brand: this.mappingService.getBrand(data['Brand']),
-            coreAttribute: this.mappingService.getCoreAttribute(data['Type']),
+            coreAttribute: this.mappingService.getCoreAttribute(data['Core']),
             attributes: []
         }
     }
@@ -115,13 +113,12 @@ export class GlovesDataService extends BaseCSVDataService<EquipmentItem> {
 
     override parse(data: any): EquipmentItem {
         return {
-
             id: this.mappingService.getId(),
             name: data['Item Name'],
             slot: EquipmentSlotType.Gloves,
             rarity: this.mappingService.getRarity(data['Quality']),
             brand: this.mappingService.getBrand(data['Brand']),
-            coreAttribute: this.mappingService.getCoreAttribute(data['Type']),
+            coreAttribute: this.mappingService.getCoreAttribute(data['Core']),
             attributes: []
         }
     }
@@ -139,13 +136,12 @@ export class HolsterDataService extends BaseCSVDataService<EquipmentItem> {
 
     override parse(data: any): EquipmentItem {
         return {
-
             id: this.mappingService.getId(),
             name: data['Item Name'],
             slot: EquipmentSlotType.Holster,
             rarity: this.mappingService.getRarity(data['Quality']),
             brand: this.mappingService.getBrand(data['Brand']),
-            coreAttribute: this.mappingService.getCoreAttribute(data['Type']),
+            coreAttribute: this.mappingService.getCoreAttribute(data['Core']),
             attributes: []
         }
     }
@@ -163,13 +159,12 @@ export class KneePadsDataService extends BaseCSVDataService<EquipmentItem> {
 
     override parse(data: any): EquipmentItem {
         return {
-
             id: this.mappingService.getId(),
             name: data['Item Name'],
             slot: EquipmentSlotType.KneePads,
             rarity: this.mappingService.getRarity(data['Quality']),
             brand: this.mappingService.getBrand(data['Brand']),
-            coreAttribute: this.mappingService.getCoreAttribute(data['Type']),
+            coreAttribute: this.mappingService.getCoreAttribute(data['Core']),
             attributes: []
         }
     }

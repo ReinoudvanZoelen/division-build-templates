@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { EquipmentItem } from 'src/store/models/EquipmentItem';
-import { IconSourceRepository } from '../../repositories/icon-repository.service';
 
 @Component({
   selector: 'app-gear-item',
@@ -8,8 +7,5 @@ import { IconSourceRepository } from '../../repositories/icon-repository.service
   styleUrls: ['./gear-item.component.scss'],
 })
 export class GearItemComponent {
-  @Input() item: EquipmentItem | undefined;
-
-  constructor(public iconSourceRepository: IconSourceRepository) {
-  }
+  @Input() public item: EquipmentItem | undefined;
 }

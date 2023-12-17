@@ -26,14 +26,16 @@
   </mat-menu>
 
   <app-gear-item
-    [item]="this.equipment.Vest"
-    #menuTrigger_Vest="matMenuTrigger"
-    [matMenuTriggerFor]="menu_Vest"
+    [item]="this.equipment.Chest"
+    #menuTrigger_Chest="matMenuTrigger"
+    [matMenuTriggerFor]="menu_Chest"
   ></app-gear-item>
-  <mat-menu #menu_Vest="matMenu">
+  <mat-menu #menu_Chest="matMenu">
     <app-body-gear-item-picker
-      [slot]="GearSlot.Vest"
-      (itemClicked)="this.equipment.Vest = $event; menuTrigger_Vest.closeMenu()"
+      [slot]="GearSlot.Chest"
+      (itemClicked)="
+        this.equipment.Chest = $event; menuTrigger_Chest.closeMenu()
+      "
     ></app-body-gear-item-picker>
   </mat-menu>
 

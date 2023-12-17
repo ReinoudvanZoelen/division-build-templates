@@ -1,0 +1,8 @@
+<div class="attribute-icons">
+  <app-attribute-icon
+    [attribute]="this.item.coreAttribute"
+  ></app-attribute-icon>
+  @for (attribute of this.item.attributes; track $index) {
+  <app-attribute-icon [attribute]="attribute"></app-attribute-icon>
+  }
+</div>

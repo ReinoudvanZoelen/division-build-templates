@@ -34,7 +34,7 @@ export class CSVEffects {
         this.actions$.pipe(
             ofType(StoreActions.extractCSV),
             exhaustMap(() => {
-                return this.gearData.GetData(EquipmentSlotType.Vest).pipe(
+                return this.gearData.GetData(EquipmentSlotType.Chest).pipe(
                     map((equipmentItems: EquipmentItem[]) => StoreActions.extractCSVSuccess({ equipmentItems })));
             })));
 

@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { EquipmentBrandType } from 'src/models/EquipmentBrand';
+import * as _ from 'lodash';
 import { EquipmentRarityType } from 'src/models/EquipmentRarity';
+import { BrandIcons } from 'src/models/Icons';
 import { CoreItemAttributeType } from 'src/models/ItemAttributeType';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MappingService {
-  private index = 0
-
-  getId(): string {
-    return this.index++ + '';
+  public getId(): string {
+    return _.uniqueId();
   }
 
   public getRarity(csvQualicty: string): EquipmentRarityType {
@@ -23,7 +22,7 @@ export class MappingService {
     }
   }
 
-  public getBrand(csvBrand: string): EquipmentBrandType {
+  public getBrand(csvBrand: string): BrandIcons {
     switch (csvBrand) {
       case '5.11 Tactical': return "511";
       case 'Aces and Eights': return "aces";

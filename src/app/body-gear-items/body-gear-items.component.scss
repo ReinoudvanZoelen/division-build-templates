@@ -8,7 +8,7 @@ $border-size: 1px;
   gap: $gap;
 
   app-gear-item {
-    min-width: calc(50% - ($gap / 2) - ($border-size * 2));
+    min-width: 400px;
     height: 120px;
     border: $border-size solid lightgray;
   }

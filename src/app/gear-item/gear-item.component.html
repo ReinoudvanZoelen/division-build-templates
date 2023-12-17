@@ -1,29 +1,38 @@
 <div class="item-card">
   <div
     class="content-wrapper"
-    [ngStyle]="{
-      'border-left': '24px solid ' + (item?.rarity ?? 0 | gearRarityColor),
-      background:
-        'linear-gradient(90deg, ' +
-        (item?.rarity ?? 0 | gearRarityColor : 0.4) +
-        ' 10%, ' +
-        (item?.rarity ?? 0 | gearRarityColor : 0.2) +
-        ' 35%, rgba(0,0,0,0) 80%)'
-    }"
+    [ngStyle]="
+      item
+        ? {
+            'border-left': '24px solid ' + (item.rarity | gearRarityColor),
+            background:
+              'linear-gradient(90deg, ' +
+              (item.rarity | gearRarityColor : 0.4) +
+              ' 10%, ' +
+              (item.rarity | gearRarityColor : 0.2) +
+              ' 35%, rgba(0,0,0,0) 80%)'
+          }
+        : {}
+    "
   >
     <div class="content-body">
-      <div>
-        <h4>{{ item?.name ?? "Select an item" }}</h4>
+      <div class="content-left">
+        <div class="top">
+          <h4>{{ item?.name ?? "Select an item" }}</h4>
+        </div>
+        <div class="bottom">
+          @if(this.item){
+          <app-gear-item-attributes
+            [item]="this.item"
+          ></app-gear-item-attributes>
+          }
+        </div>
       </div>
+      <div class="content-right"></div>
     </div>
 
-    <img
-      class="brand-icon"
-      [src]="
-        this.iconSourceRepository.GetIconSourceForBrand(
-          this.item?.brand ?? 'exotic'
-        )
-      "
-    />
+    @if(this.item){
+    <img class="brand-icon" [src]="this.item.brand | iconUrl : 'brands'" />
+    }
   </div>
 </div>

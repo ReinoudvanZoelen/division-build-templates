@@ -10,14 +10,28 @@ $item-margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: calc(100% - 24px);
     height: 100%;
     border-radius: inherit;
     position: relative;
 
     .content-body {
-      margin: 8px;
-      color: lightgray;
+      color: white;
+      height: 100%;
+
+      .content-left {
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .top {
+          margin: 8px;
+        }
+
+        .bottom {
+          padding: 8px;
+        }
+      }
     }
 
     .brand-icon {

@@ -8,17 +8,15 @@ import { Firebase_Loadout_Create } from "./firebase/models/Loadout";
 import { EquipmentItem, EquipmentItem_Create } from "./models/EquipmentItem";
 import { Loadout, Loadout_Create } from "./models/Loadout";
 import { equipmentItems$, loadouts$ } from "./selectors";
-import { IRootState } from "./state";
 
 @Injectable({
     providedIn: "root",
 })
 export class StoreService {
-    constructor(private store: Store<IRootState>) { }
+    constructor(private store: Store) { }
 
     public get loadouts$(): Observable<Loadout[]> {
-        console.log(this.store);
-        return this.store.select(loadouts$)
+        return this.store.select(loadouts$);
     }
 
     public get equipmentItems$(): Observable<EquipmentItem[]> {

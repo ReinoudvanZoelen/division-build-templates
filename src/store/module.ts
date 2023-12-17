@@ -10,7 +10,7 @@ import { StoreService } from "./service";
 
 @NgModule({
     imports: [
-        NgRxStoreModule.forRoot({ storeReducer }),
+        NgRxStoreModule.forRoot({ 'division': storeReducer }),
         EffectsModule.forRoot([CSVEffects, EquipmentItemStoreEffects, LoadoutStoreEffects]),
         StoreDevtoolsModule.instrument({
             maxAge: 25,

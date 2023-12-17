@@ -1,25 +1,22 @@
-@for (item of (equipmentItems$ | async); track item.id) {
-<h1>{{item.name}}</h1>
-} @empty {
-<h1>Empty!</h1>
-}
-
+@if(equipmentItems$){
 <mat-tab-group class="gear-picker-tab-group" (click)="$event.stopPropagation()">
   <mat-tab label="Exotic">
-    <app-gear-item *ngFor="
-        let item of equipmentItems$
-          | async
-          | gearRarity : EquipmentRarity.Exotic
-      " [item]="item" (click)="onClickItem(item)"></app-gear-item>
+    @for (item of (equipmentItems$ | async | gearRarity :
+    EquipmentRarity.Exotic); track item.id) {
+    <app-gear-item [item]="item" (click)="onClickItem(item)"></app-gear-item>
+    }
   </mat-tab>
   <mat-tab label="Set">
-    <app-gear-item *ngFor="
-        let item of equipmentItems$ | async | gearRarity : EquipmentRarity.Set
-      " [item]="item" (click)="onClickItem(item)"></app-gear-item>
+    @for (item of (equipmentItems$ | async | gearRarity : EquipmentRarity.Set);
+    track item.id) {
+    <app-gear-item [item]="item" (click)="onClickItem(item)"></app-gear-item>
+    }
   </mat-tab>
   <mat-tab label="Brand">
-    <app-gear-item *ngFor="
-        let item of equipmentItems$ | async | gearRarity : EquipmentRarity.Brand
-      " [item]="item" (click)="onClickItem(item)"></app-gear-item>
+    @for (item of (equipmentItems$ | async | gearRarity :
+    EquipmentRarity.Brand); track item.id) {
+    <app-gear-item [item]="item" (click)="onClickItem(item)"></app-gear-item>
+    }
   </mat-tab>
 </mat-tab-group>
+}

@@ -1,15 +1,16 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { EquipmentItem } from "./models/EquipmentItem";
 import { Loadout } from "./models/Loadout";
-import { IRootState, IStoreState, StoreFeatureKey } from "./state";
+import { IStoreState } from "./state";
 
-export const selectStore = createFeatureSelector<IRootState, IStoreState>(StoreFeatureKey);
+export const selectDivisionState =
+    createFeatureSelector<IStoreState>('division');
 
 export const loadouts$ = createSelector(
-    selectStore,
-    (state: IStoreState): Loadout[] => state.loadouts
+    selectDivisionState,
+    (state: IStoreState): Loadout[] => state.loadouts ?? []
 );
 export const equipmentItems$ = createSelector(
-    selectStore,
-    (state: IStoreState): EquipmentItem[] => state.equipmentItems
+    selectDivisionState,
+    (state: IStoreState): EquipmentItem[] => state.equipmentItems ?? []
 );

@@ -16,14 +16,6 @@ export class AppComponent implements OnInit {
   constructor(private store: StoreService) { }
 
   ngOnInit(): void {
-    this.store.loadouts$.subscribe(x => {
-      console.log('loadouts$ returned with', x);
-    })
-
-    this.store.equipmentItems$.subscribe(x => {
-      console.log('equipmentItems$ returned with', x);
-    })
-
     this.store.dispatchGetLoadouts();
     this.store.dispatchExtractCSV();
   }

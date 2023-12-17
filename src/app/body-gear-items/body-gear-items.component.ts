@@ -10,16 +10,4 @@ import { Loadout } from 'src/store/models/Loadout';
 export class BodyGearItemsComponent {
   public GearSlot = EquipmentSlotType;
   public equipment: Loadout = { id: '' };
-
-  // constructor(private buildService: BuildRepositoryService) { }
-
-  // public saveTemplate() {
-  //   this.buildService.Add(this.equipment).subscribe(x => {
-  //     console.log('Saved the template with id', x);
-
-  //     this.buildService.Get(x.name).subscribe(x => {
-  //       console.log('Fetched it and got', x);
-  //     })
-  //   });
-  // }
 }

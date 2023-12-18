@@ -5,8 +5,8 @@ import { Firebase_EquipmentItem, Firebase_EquipmentItem_Create } from "src/fireb
 import { Firebase_Loadout, Firebase_Loadout_Create } from "src/firebase/models/Loadout";
 import { EquipmentSlotType } from "src/models/EquipmentSlot";
 import { StoreActions } from "./actions";
-import { EquipmentItem, EquipmentItem_Create } from "./models/EquipmentItem";
-import { Loadout, Loadout_Create } from "./models/Loadout";
+import { EquipmentItem_Create } from "./models/EquipmentItem";
+import { Loadout_Create } from "./models/Loadout";
 import { equipmentItems$, loadouts$ } from "./selectors";
 
 @Injectable({
@@ -15,19 +15,19 @@ import { equipmentItems$, loadouts$ } from "./selectors";
 export class StoreService {
     constructor(private store: Store) { }
 
-    public get loadouts$(): Observable<Loadout[]> {
+    public get loadouts$(): Observable<Firebase_Loadout[]> {
         return this.store.select(loadouts$);
     }
 
-    public get equipmentItems$(): Observable<EquipmentItem[]> {
+    public get equipmentItems$(): Observable<Firebase_EquipmentItem[]> {
         return this.store.select(equipmentItems$)
     }
 
-    public getLoadout(id: string): Observable<Loadout | undefined> {
+    public getLoadout(id: string): Observable<Firebase_Loadout | undefined> {
         return this.loadouts$.pipe(map(loadouts => loadouts.find(loadout => loadout.id === id)));
     }
 
-    public equipmentItemsForSlot$(slot: EquipmentSlotType): Observable<EquipmentItem[]> {
+    public equipmentItemsForSlot$(slot: EquipmentSlotType): Observable<Firebase_EquipmentItem[]> {
         return this.store.select(equipmentItems$).pipe(map(items => items.filter(item => item.slot === slot)));
     }
 
@@ -53,11 +53,11 @@ export class StoreService {
         this.store.dispatch(StoreActions.extractCSV());
     }
 
-    public firebaseLoadoutsChange(data: Firebase_Loadout[]): void {
-        console.log('The service received the following firebase loadouts', data);
+    public firebaseLoadoutsChange(loadouts: Firebase_Loadout[]): void {
+        this.store.dispatch(StoreActions.setFirebaseLoadouts({ loadouts }));
     }
 
-    public firebaseEquipmentItemsChange(data: Firebase_EquipmentItem[]): void {
-        console.log('The service received the following firebase equipment items', data);
+    public firebaseEquipmentItemsChange(equipmentItems: Firebase_EquipmentItem[]): void {
+        this.store.dispatch(StoreActions.setFirebaseEquipmentItems({ equipmentItems }));
     }
 }

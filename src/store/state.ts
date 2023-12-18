@@ -1,9 +1,9 @@
-import { EquipmentItem } from "./models/EquipmentItem";
-import { Loadout } from "./models/Loadout";
+import { Firebase_EquipmentItem } from "src/firebase/models/EquipmentItem";
+import { Firebase_Loadout } from "src/firebase/models/Loadout";
 
 export interface IStoreState {
-    loadouts: Loadout[];
-    equipmentItems: EquipmentItem[];
+    loadouts: Firebase_Loadout[];
+    equipmentItems: Firebase_EquipmentItem[];
 }
 
 export const initialStoreState: IStoreState = {

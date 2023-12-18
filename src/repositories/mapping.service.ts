@@ -8,10 +8,6 @@ import { CoreItemAttributeType } from 'src/models/ItemAttributeType';
   providedIn: 'root'
 })
 export class MappingService {
-  public getId(): string {
-    return _.uniqueId();
-  }
-
   public getRarity(csvQualicty: string): EquipmentRarityType {
     switch (csvQualicty) {
       case 'Exotic': return EquipmentRarityType.Exotic;

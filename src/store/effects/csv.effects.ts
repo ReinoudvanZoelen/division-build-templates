@@ -8,7 +8,8 @@ import { GearDataService } from '../csv/gear-data.service';
     providedIn: 'root'
 })
 export class CSVEffects {
-    constructor(private gearData: GearDataService,
+    constructor(
+        private gearData: GearDataService,
         private actions$: Actions) {
     }
 

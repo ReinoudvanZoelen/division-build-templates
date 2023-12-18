@@ -16,16 +16,26 @@ export const storeReducer = createReducer(
         deepCopy.equipmentItems = deepCopy.equipmentItems.concat(action.equipmentItems.map(item => new EquipmentItem(item)))
         return deepCopy;
     }),
-    on(StoreActions.extractCSVSuccess, (state, action) => {
-        var deepCopy = _.cloneDeep(state);
-        if (action.equipmentItems.length > 0) {
-            deepCopy.equipmentItems = deepCopy.equipmentItems.concat(action.equipmentItems)
-        }
-        return deepCopy;
-    }),
+    // on(StoreActions.extractCSVSuccess, (state, action) => {
+    //     var deepCopy = _.cloneDeep(state);
+    //     if (action.equipmentItems.length > 0) {
+    //         deepCopy.equipmentItems = deepCopy.equipmentItems.concat(action.equipmentItems)
+    //     }
+    //     return deepCopy;
+    // }),
     on(StoreActions.createLoadoutSuccess, (state, action) => {
         var deepCopy = _.cloneDeep(state);
         deepCopy.loadouts.push(action.loadout);
         return deepCopy;
-    })
+    }),
+    on(StoreActions.setFirebaseLoadouts, (state, action) => {
+        var deepCopy = _.cloneDeep(state);
+        deepCopy.loadouts = action.loadouts;
+        return deepCopy;
+    }),
+    on(StoreActions.setFirebaseEquipmentItems, (state, action) => {
+        var deepCopy = _.cloneDeep(state);
+        deepCopy.equipmentItems = action.equipmentItems;
+        return deepCopy;
+    }),
 );

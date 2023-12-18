@@ -1,7 +1,7 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { Firebase_EquipmentItem, Firebase_EquipmentItem_Create } from 'src/firebase/models/EquipmentItem';
 import { Firebase_Loadout, Firebase_Loadout_Create } from 'src/firebase/models/Loadout';
-import { EquipmentItem } from './models/EquipmentItem';
+import { EquipmentItem_Create } from './models/EquipmentItem';
 
 export const StoreActions = createActionGroup({
     source: 'Division 2 Build Template Store',
@@ -23,6 +23,10 @@ export const StoreActions = createActionGroup({
         'Create Equipment Item Fail': props<{ message: string }>(),
 
         'Extract CSV': emptyProps(),
-        'Extract CSV Success': props<{ equipmentItems: EquipmentItem[] }>(),
+        'Extract CSV Success': props<{ equipmentItems: EquipmentItem_Create[] }>(),
+
+        'Set Firebase Loadouts': props<{ loadouts: Firebase_Loadout[] }>(),
+
+        'Set Firebase Equipment Items': props<{ equipmentItems: Firebase_EquipmentItem[] }>(),
     },
 });

@@ -30,7 +30,6 @@ export class FirebaseService {
   }
 
   public CreateEquipmentItem(equipmentItem: Firebase_EquipmentItem_Create): Promise<void> {
-
     const newKey = push(child(this.equipmentItemRef, EQUIPMENT_ITEM_TABLE_KEY)).key;
 
     const updates: any = {

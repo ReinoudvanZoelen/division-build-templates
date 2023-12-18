@@ -1,8 +1,8 @@
+import { Firebase_EquipmentItem, Firebase_EquipmentItem_Create } from "src/firebase/models/EquipmentItem";
 import { EquipmentRarityType } from "src/models/EquipmentRarity";
 import { EquipmentSlotType } from "src/models/EquipmentSlot";
 import { BrandIcons } from "src/models/Icons";
 import { CoreItemAttributeType, SecondaryItemAttributeType } from "src/models/ItemAttributeType";
-import { Firebase_EquipmentItem, Firebase_EquipmentItem_Create } from "../firebase/models/EquipmentItem";
 
 export class EquipmentItem_Create {
     name: string;

@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FirebaseModule } from 'src/firebase/firebase.module';
 import { GearRarityColorPipe } from 'src/pipes/gear-rarity-color.pipe';
 import { IconUrlPipe } from 'src/pipes/icon-url.pipe';
 import { IconPipe } from 'src/pipes/icon.pipe';
@@ -46,8 +47,9 @@ const Pipes = [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FirebaseModule,
     HttpClientModule,
-    AppRoutingModule],
+    AppRoutingModule,],
   providers: [],
   bootstrap: [AppComponent],
 })

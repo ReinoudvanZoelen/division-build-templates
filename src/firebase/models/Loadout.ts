@@ -3,7 +3,7 @@ import { Loadout, Loadout_Create } from "src/store/models/Loadout";
 export class Firebase_Loadout_Create {
     MaskId?: string;
     BackpackId?: string;
-    VestId?: string;
+    ChestId?: string;
     GlovesId?: string;
     HolsterId?: string;
     KneePadsId?: string;
@@ -11,7 +11,7 @@ export class Firebase_Loadout_Create {
     constructor(loadout: Loadout_Create) {
         this.MaskId = loadout.Mask?.id;
         this.BackpackId = loadout.Backpack?.id;
-        this.VestId = loadout.Chest?.id;
+        this.ChestId = loadout.Chest?.id;
         this.GlovesId = loadout.Gloves?.id;
         this.HolsterId = loadout.Holster?.id;
         this.KneePadsId = loadout.KneePads?.id;

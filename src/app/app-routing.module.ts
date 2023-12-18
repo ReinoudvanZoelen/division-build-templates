@@ -4,7 +4,7 @@ import { BodyGearItemsComponent } from './body-gear-items/body-gear-items.compon
 import { EditLoadoutComponent } from './edit-loadout/edit-loadout.component';
 
 const routes: Routes = [
-  { path: 'build', component: BodyGearItemsComponent },
+  { path: 'create', component: BodyGearItemsComponent },
   { path: 'edit/:id', component: EditLoadoutComponent },
 ];
 

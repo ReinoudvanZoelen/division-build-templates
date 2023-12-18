@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "division-build-templates": {
+      "hosting": {
+        "division-builds": [
+          "division-build-templates"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "division-build-templates"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "division-builds",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

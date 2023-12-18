@@ -1,6 +1,6 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { Firebase_EquipmentItem, Firebase_EquipmentItem_Create } from './firebase/models/EquipmentItem';
-import { Firebase_Loadout, Firebase_Loadout_Create } from './firebase/models/Loadout';
+import { Firebase_EquipmentItem, Firebase_EquipmentItem_Create } from 'src/firebase/models/EquipmentItem';
+import { Firebase_Loadout, Firebase_Loadout_Create } from 'src/firebase/models/Loadout';
 import { EquipmentItem } from './models/EquipmentItem';
 
 export const StoreActions = createActionGroup({

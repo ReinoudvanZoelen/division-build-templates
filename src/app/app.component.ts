@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipmentRarityType } from 'src/models/EquipmentRarity';
+import { FirebaseService } from 'src/firebase/firebase.service';
 import { EquipmentSlotType } from 'src/models/EquipmentSlot';
-import { CoreItemAttributeType } from 'src/models/ItemAttributeType';
-import { Loadout_Create } from 'src/store/models/Loadout';
 import { StoreService } from 'src/store/service';
 
 @Component({
@@ -13,23 +11,16 @@ import { StoreService } from 'src/store/service';
 export class AppComponent implements OnInit {
   title = 'division-builds';
 
-  constructor(private store: StoreService) { }
+  constructor(private store: StoreService, private firebase: FirebaseService) { }
 
   ngOnInit(): void {
     this.store.dispatchGetLoadouts();
     this.store.dispatchExtractCSV();
-  }
 
-  protected CreateLoadout(): void {
-    var model: Loadout_Create = {
-      Mask: { id: '1', name: 'name', slot: EquipmentSlotType.Mask, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
-      Backpack: { id: '2', name: 'name', slot: EquipmentSlotType.Backpack, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
-      Chest: { id: '3', name: 'name', slot: EquipmentSlotType.Chest, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
-      Gloves: { id: '4', name: 'name', slot: EquipmentSlotType.Gloves, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
-      Holster: { id: '5', name: 'name', slot: EquipmentSlotType.Holster, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
-      KneePads: { id: '6', name: 'name', slot: EquipmentSlotType.KneePads, rarity: EquipmentRarityType.Set, coreAttribute: CoreItemAttributeType.Weapon_Damage, attributes: [], brand: '511' },
-    };
-
-    this.store.saveLoadout(model);
+    this.store.equipmentItemsForSlot$(EquipmentSlotType.Mask).subscribe(items => {
+      if (items.length > 0) {
+        // this.firebase.CreateEquipmentItem(new Firebase_EquipmentItem_Create(items[0]));
+      }
+    })
   }
 }

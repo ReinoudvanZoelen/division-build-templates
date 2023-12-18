@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, forkJoin, map } from "rxjs";
+import { BehaviorSubject, Observable, combineLatest, map, mergeAll } from "rxjs";
 import { EquipmentSlotType } from "src/models/EquipmentSlot";
 import { EquipmentItem } from "src/store/models/EquipmentItem";
 import { MappingService } from "../../repositories/mapping.service";
@@ -17,6 +17,29 @@ export class GearDataService {
         private HolsterDataService: HolsterDataService,
         private KneePadsDataService: KneePadsDataService
     ) {
+    }
+
+    public GetAllData(): Observable<EquipmentItem[]> {
+        return combineLatest([
+            this.MaskDataService.GetData(),
+            this.BackpackDataService.GetData(),
+            this.VestDataService.GetData(),
+            this.GlovesDataService.GetData(),
+            this.HolsterDataService.GetData(),
+            this.KneePadsDataService.GetData()
+        ]).pipe(map((wrapper) => {
+            if (wrapper[0].length > 0
+                && wrapper[1].length > 0
+                && wrapper[2].length > 0
+                && wrapper[3].length > 0
+                && wrapper[4].length > 0
+                && wrapper[5].length > 0) {
+                var items: EquipmentItem[] = [];
+                return items.concat(wrapper[0], wrapper[1], wrapper[2], wrapper[3], wrapper[4], wrapper[5]);
+            } else {
+                return [];
+            }
+        }));
     }
 
     public GetData(slot: EquipmentSlotType): BehaviorSubject<EquipmentItem[]> {

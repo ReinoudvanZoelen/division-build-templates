@@ -14,8 +14,8 @@ export class BodyGearItemsComponent {
 
   constructor(private store: StoreService) { }
 
-  public CreateLoadout() {
-    console.log(this.loadout);
+  public SaveLoadout() {
+    console.log('Saving', this.loadout);
     this.store.saveLoadout(this.loadout);
   }
 }

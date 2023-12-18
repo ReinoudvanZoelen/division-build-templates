@@ -18,7 +18,9 @@ export const storeReducer = createReducer(
     }),
     on(StoreActions.extractCSVSuccess, (state, action) => {
         var deepCopy = _.cloneDeep(state);
-        deepCopy.equipmentItems = deepCopy.equipmentItems.concat(action.equipmentItems)
+        if (action.equipmentItems.length > 0) {
+            deepCopy.equipmentItems = deepCopy.equipmentItems.concat(action.equipmentItems)
+        }
         return deepCopy;
     }),
     on(StoreActions.createLoadoutSuccess, (state, action) => {

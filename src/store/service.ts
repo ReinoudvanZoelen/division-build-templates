@@ -23,6 +23,10 @@ export class StoreService {
         return this.store.select(equipmentItems$)
     }
 
+    public getLoadout(id: string): Observable<Loadout | undefined> {
+        return this.loadouts$.pipe(map(loadouts => loadouts.find(loadout => loadout.id === id)));
+    }
+
     public equipmentItemsForSlot$(slot: EquipmentSlotType): Observable<EquipmentItem[]> {
         return this.store.select(equipmentItems$).pipe(map(items => items.filter(item => item.slot === slot)));
     }

@@ -21,7 +21,10 @@ export class LoadoutStoreEffects {
             ofType(StoreActions.getLoadouts),
             exhaustMap(() =>
                 this.loadoutRepository.GetAll().pipe(
-                    map((loadouts: Firebase_Loadout[]) => StoreActions.getLoadoutsSuccess({ loadouts })),
+                    map((loadouts: Firebase_Loadout[]) => {
+                        console.log('StoreActions.getLoadouts', loadouts);
+                        return StoreActions.getLoadoutsSuccess({ loadouts })
+                    }),
                     catchError((error: any) => of(StoreActions.getLoadoutsFail({ message: error })))
                 )
             )

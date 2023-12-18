@@ -1,19 +1,8 @@
-.wrapper {
-  height: 100%;
-  overflow: auto;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  align-items: center;
+$topbar-height: 64px;
+
+.container {
+  display: inline-block;
+  height: calc(100% - $topbar-height);
+  width: 100%;
   background-color: rgb(54, 54, 54);
-
-  h1 {
-    color: white;
-    padding: 20px;
-  }
-
-  app-body-gear-items {
-    display: flex;
-    align-items: flex-start;
-  }
 }

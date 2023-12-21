@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirebaseService } from 'src/firebase/firebase.service';
 import { Firebase_Loadout_Create } from 'src/firebase/models/Loadout';
 import { EquipmentSlotType } from 'src/models/EquipmentSlot';
@@ -14,7 +15,7 @@ export class BodyGearItemsComponent {
   public GearSlot = EquipmentSlotType;
   public loadout = new Loadout_Create();
 
-  constructor(private store: StoreService, private firebase: FirebaseService) { }
+  constructor(private store: StoreService, private firebase: FirebaseService, private router: Router) { }
 
   public SaveLoadout() {
     console.log('Saving', this.loadout);
@@ -28,5 +29,6 @@ export class BodyGearItemsComponent {
       KneePadsId: this.loadout.KneePads?.id,
     }
     this.firebase.CreateLoadout(model);
+    this.router.navigate([['/']])
   }
 }

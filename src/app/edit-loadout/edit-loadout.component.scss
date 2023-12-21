@@ -1,0 +1,36 @@
+@use "/src/app/mixins.scss" as *;
+
+$gap: 32px;
+$border-size: 1px;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px;
+
+  .gear-items {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc($gap / 2);
+
+    app-gear-item {
+      min-width: 100%;
+      height: 120px;
+      border: $border-size solid lightgray;
+
+      @include md {
+        min-width: calc(50% - 20px);
+      }
+    }
+
+    @include md {
+      gap: $gap;
+
+      app-gear-item {
+        min-width: calc(50% - 20px);
+      }
+    }
+  }
+}

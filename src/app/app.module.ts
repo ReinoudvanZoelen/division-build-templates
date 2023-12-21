@@ -16,17 +16,21 @@ import { BodyGearItemsComponent } from './body-gear-items/body-gear-items.compon
 import { EditLoadoutComponent } from './edit-loadout/edit-loadout.component';
 import { GearItemAttributesComponent } from './gear-item/gear-item-attributes/gear-item-attributes.component';
 import { GearItemComponent } from './gear-item/gear-item.component';
+import { LoadoutOverviewItemComponent } from './loadout-overview/loadout-overview-item/loadout-overview-item.component';
+import { LoadoutOverviewComponent } from './loadout-overview/loadout-overview.component';
 import { MaterialModule } from './material-angular.module';
 import { TopbarComponent } from './topbar/topbar.component';
 
 const CustomComponents = [
-  TopbarComponent,
-  GearItemComponent,
-  GearItemAttributesComponent,
-  BodyGearItemsComponent,
-  EditLoadoutComponent,
   AttributeIconComponent,
   BodyGearItemPickerComponent,
+  BodyGearItemsComponent,
+  EditLoadoutComponent,
+  GearItemAttributesComponent,
+  GearItemComponent,
+  LoadoutOverviewComponent,
+  LoadoutOverviewItemComponent,
+  TopbarComponent,
 ];
 
 const Pipes = [

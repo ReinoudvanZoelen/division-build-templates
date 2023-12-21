@@ -1,4 +1,8 @@
 @for (item of (this.loadouts$ | async); track $index) {
-<app-loadout-overview-item [loadout]="item"></app-loadout-overview-item>
-<button mat-raised-button [routerLink]="['/edit', item.id]">Edit</button>
+<div class="p-2">
+  <app-loadout-overview-item [loadout]="item"></app-loadout-overview-item>
+  <div class="mt-1 flex flex-row justify-end w-full">
+    <button mat-raised-button [routerLink]="['/edit', item.id]">Edit</button>
+  </div>
+</div>
 }

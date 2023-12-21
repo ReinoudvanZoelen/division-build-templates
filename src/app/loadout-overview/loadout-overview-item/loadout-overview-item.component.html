@@ -1,12 +1,37 @@
 <div class="wrapper border text-white p-2">
   <h1>{{ this.loadout.id }}</h1>
 
-  <ul>
-    <li>{{ this.loadout.Mask?.name }}</li>
-    <li>{{ this.loadout.Backpack?.name }}</li>
-    <li>{{ this.loadout.Chest?.name }}</li>
-    <li>{{ this.loadout.Gloves?.name }}</li>
-    <li>{{ this.loadout.Holster?.name }}</li>
-    <li>{{ this.loadout.KneePads?.name }}</li>
-  </ul>
+  <div class="icon-wrapper">
+    @if(this.loadout.Mask){
+    <img
+      class="brand-icon"
+      [src]="this.loadout.Mask.brand | iconUrl : 'brands'"
+    />
+    } @if(this.loadout.Backpack) {
+    <img
+      class="brand-icon"
+      [src]="this.loadout.Backpack.brand | iconUrl : 'brands'"
+    />
+    } @if(this.loadout.Chest){
+    <img
+      class="brand-icon"
+      [src]="this.loadout.Chest.brand | iconUrl : 'brands'"
+    />
+    } @if(this.loadout.Gloves){
+    <img
+      class="brand-icon"
+      [src]="this.loadout.Gloves.brand | iconUrl : 'brands'"
+    />
+    } @if(this.loadout.Holster){
+    <img
+      class="brand-icon"
+      [src]="this.loadout.Holster.brand | iconUrl : 'brands'"
+    />
+    } @if(this.loadout.KneePads){
+    <img
+      class="brand-icon"
+      [src]="this.loadout.KneePads.brand | iconUrl : 'brands'"
+    />
+    }
+  </div>
 </div>

@@ -1,8 +1,9 @@
 $topbar-height: 64px;
 
 .container {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   height: calc(100% - $topbar-height);
-  width: 100%;
+  min-width: 100%;
   background-color: rgb(54, 54, 54);
 }

@@ -1,7 +1,7 @@
 import { EquipmentRarityType } from "src/models/EquipmentRarity";
 import { EquipmentSlotType } from "src/models/EquipmentSlot";
 import { BrandIcons } from "src/models/Icons";
-import { CoreItemAttributeType, SecondaryItemAttributeType } from "src/models/ItemAttributeType";
+import { CoreGearAttributes, SecondaryGearAttributes } from "src/models/GearAttributes";
 import { EquipmentItem, EquipmentItem_Create } from "src/store/models/EquipmentItem";
 
 export class Firebase_EquipmentItem_Create {
@@ -9,8 +9,8 @@ export class Firebase_EquipmentItem_Create {
     slot: EquipmentSlotType;
     rarity: EquipmentRarityType;
     brand: BrandIcons;
-    coreAttribute: CoreItemAttributeType;
-    attributes: SecondaryItemAttributeType[];
+    coreAttribute: CoreGearAttributes;
+    attributes: SecondaryGearAttributes[];
 
     constructor(equipmentItem: EquipmentItem_Create) {
         this.name = equipmentItem.name;

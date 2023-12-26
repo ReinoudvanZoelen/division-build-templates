@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { EquipmentRarityType } from 'src/models/EquipmentRarity';
 import { BrandIcons } from 'src/models/Icons';
-import { CoreItemAttributeType } from 'src/models/ItemAttributeType';
+import { CoreGearAttributes } from 'src/models/GearAttributes';
 
 @Injectable({
   providedIn: 'root'
@@ -71,12 +71,12 @@ export class MappingService {
     }
   }
 
-  public getCoreAttribute(type: string): CoreItemAttributeType {
+  public getCoreAttribute(type: string): CoreGearAttributes {
     switch (type) {
-      case 'Weapon Damage': return CoreItemAttributeType.Weapon_Damage;
-      case 'Armor': return CoreItemAttributeType.Armor_Core;
-      case 'Skill Tier': return CoreItemAttributeType.Skill_Tier;
-      default: return CoreItemAttributeType.Not_Applicable;
+      case 'Weapon Damage': return CoreGearAttributes.Weapon_Damage;
+      case 'Armor': return CoreGearAttributes.Armor;
+      case 'Skill Tier': return CoreGearAttributes.Skill_Tier;
+      default: return CoreGearAttributes.Not_Applicable;
     }
   }
 }

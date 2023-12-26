@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ItemAttributeType } from 'src/models/ItemAttributeType';
+import { GearAttributes } from 'src/models/GearAttributes';
 
 @Component({
   selector: 'app-attribute-icon',
@@ -7,5 +7,5 @@ import { ItemAttributeType } from 'src/models/ItemAttributeType';
   styleUrls: ['./attribute-icon.component.scss']
 })
 export class AttributeIconComponent {
-  @Input({ required: true }) public attribute: ItemAttributeType;
+  @Input({ required: true }) public attribute: GearAttributes;
 }

@@ -1,0 +1,15 @@
+export enum WeaponAttributes {
+    Damage_to_Armor = "Damage to Armor",
+    Critical_Hit_Chance = "Critical Hit Chance",
+    Health_Damage = "Health Damage",
+    DMG_to_target_out_of_cover = "DMG to target out of cover",
+    Headshot_Damage = "Headshot Damage",
+    Critical_Hit_Damage = "Critical Hit Damage",
+    Reload_Speed = "Reload Speed",
+    Stability = "Stability",
+    Accuracy = "Accuracy",
+    Optimal_Range = "Optimal Range",
+    Magazine_Size = "Magazine Size",
+    Rate_of_Fire = "Rate of Fire",
+    Swap_Speed = "Swap Speed",
+}
